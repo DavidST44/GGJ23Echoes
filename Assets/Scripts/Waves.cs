@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Waves : MonoBehaviour
 {
     public GameObject PlayerRef;
-    
+    public GameObject bulletPrefab;
     public List<EnemyWave> EnemyWaveList = new List<EnemyWave>();
     Queue<EnemyType> Enemies;
 
@@ -20,6 +20,7 @@ public class Waves : MonoBehaviour
 
     float nextWaveTimer = 0;
     [SerializeField] private float nextWaveTimerMax = 3;
+    public GameObject audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,6 @@ public class Waves : MonoBehaviour
 
         //backup = new Queue<GameObject>(Enemies);
     }
-
     void SpawnWave(int currentWave)
     {
         if (currentWave < EnemyWaveList.Count)
@@ -38,37 +38,49 @@ public class Waves : MonoBehaviour
             {
                 for (int i = 0; i < EnemyWaveList[currentWave].waveSize; i++)
                 {
-                    GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[Random.Range(0, EnemyWaveList[currentWave].enemyList.Length)], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                    GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
-                    UIElement.transform.parent = IconContainer.transform;
-
-                    Enemy.GetComponent<Enemy>().Target = PlayerRef;
-
-
-
-                    Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
-
-                    print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
-                    DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+                    int randomselection = Random.Range(0, EnemyWaveList[currentWave].enemyList.Length);
+                    GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[randomselection].enemy, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                    
+                    CreateObj(Enemy, EnemyWaveList[currentWave].enemyList[randomselection].Move, EnemyWaveList[currentWave].enemyList[randomselection].Shoot, EnemyWaveList[currentWave].enemyList[randomselection]);
                 }
             }
             else
             {
                 for (int i = 0; i < EnemyWaveList[currentWave].enemyList.Length; i++)
                 {
-                    GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[i], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                    GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
-                    UIElement.transform.parent = IconContainer.transform;
-                    Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
-                    Enemy.GetComponent<Enemy>().Target = PlayerRef;
-
-                    print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
-                    DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+                    GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[i].enemy, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                    CreateObj(Enemy, EnemyWaveList[currentWave].enemyList[i].Move, EnemyWaveList[currentWave].enemyList[i].Shoot, EnemyWaveList[currentWave].enemyList[i]);
                 }
             }
         }
         else
             shitpost.gameObject.SetActive(true);
+    }
+
+    void CreateObj(GameObject Enemy, bool move, bool shoot, EnemySpawner spawner )
+    {
+        GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
+
+        UIElement.transform.parent = IconContainer.transform;
+        Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
+        Enemy.GetComponent<Enemy>().Target = PlayerRef;
+
+        print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
+        DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+        if (move)
+        {
+            Enemy.AddComponent<MoveRandom>();
+            Enemy.GetComponent<MoveRandom>().Speed = spawner.Speed;
+            Enemy.GetComponent<MoveRandom>().MaxDistance = spawner.MaxDistance;
+            Enemy.GetComponent<MoveRandom>().Range = spawner.Range;
+
+        }
+        if (shoot)
+        {
+            Enemy.AddComponent<EnemyContinuousShot>();
+            Enemy.GetComponent<EnemyContinuousShot>().EnemyRef = Enemy.GetComponent<Enemy>();
+            Enemy.GetComponent<EnemyContinuousShot>().bulletPrefab = bulletPrefab;
+        }
     }
 
     public bool IsCorrectTarget(GameObject enemy)
@@ -110,6 +122,16 @@ public class Waves : MonoBehaviour
 public class EnemyWave
 {
     public bool RandomWaveFromPool;
-    public GameObject[] enemyList;
+    public EnemySpawner[] enemyList;
     public int waveSize = 5;
+}
+[System.Serializable]
+public class EnemySpawner
+{
+    public GameObject enemy;
+    public bool Move;
+    public float Speed =2;
+    public float Range = 3;
+    public float MaxDistance = 6;
+    public bool Shoot;
 }

@@ -9,7 +9,11 @@ public class MoveRandom : MonoBehaviour
     [SerializeField] float range;
     [SerializeField] float maxDistance;
 
-    Vector2 wayPoint; 
+    Vector2 wayPoint;
+
+    public float Speed { get => speed; set => speed = value; }
+    public float Range { get => range; set => range = value; }
+    public float MaxDistance { get => maxDistance; set => maxDistance = value; }
 
     void Start()
     {
