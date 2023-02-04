@@ -12,7 +12,9 @@ public class Waves : MonoBehaviour
     //Queue<GameObject> backup;
     int currentWave;
     public Text DebugText;
+    public Image shitpost;
 
+    public GameObject IconContainer;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,10 @@ public class Waves : MonoBehaviour
                 for (int i = 0; i < EnemyWaveList[currentWave].waveSize; i++)
                 {
                     GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[Random.Range(0, EnemyWaveList[currentWave].enemyList.Length)], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                    GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
+                    UIElement.transform.parent = IconContainer.transform;
+
+
                     Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
 
                     print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
@@ -42,6 +48,8 @@ public class Waves : MonoBehaviour
                 for (int i = 0; i < EnemyWaveList[currentWave].enemyList.Length; i++)
                 {
                     GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[i], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                    GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
+                    UIElement.transform.parent = IconContainer.transform;
                     Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
 
                     print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
@@ -49,6 +57,8 @@ public class Waves : MonoBehaviour
                 }
             }
         }
+        else
+            shitpost.gameObject.SetActive(true);
     }
 
     public bool IsCorrectTarget(GameObject enemy)
@@ -56,6 +66,7 @@ public class Waves : MonoBehaviour
         if (Enemies.Peek() == enemy.GetComponent<Enemy>().ColourName)
         {
             Enemies.Dequeue();
+            Destroy(IconContainer.transform.GetChild(0).gameObject);
             return true;
         }
         else
@@ -69,8 +80,10 @@ public class Waves : MonoBehaviour
     void Update()
     {
         if (Enemies.Count > 0 || currentWave > EnemyWaveList.Count)
-        return;
-
+        {
+            
+            return;
+        }
         currentWave++;
         DebugText.text = "";
         SpawnWave(currentWave);
