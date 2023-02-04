@@ -137,3 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shooter: {fileID: 0}
+  enemyAudioSource: {fileID: 8300000, guid: 6b6095de2bf4b2140adbff3dad70eee3, type: 3}
+  audioSource: {fileID: 8257707787254291229, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}

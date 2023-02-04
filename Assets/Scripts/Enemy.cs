@@ -7,18 +7,33 @@ public class Enemy : MonoBehaviour
     public EnemyType ColourName;
     public GameObject UIElement;
     public GameObject Target;
+    public AudioClip enemyAudioSource;
+
+    public GameObject audioSource;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            if (collision.gameObject.GetComponent<Bullet>().Shooter != this)
+            if (collision.gameObject.GetComponent<Bullet>().Shooter != gameObject)
+            {
                 if (GameObject.FindAnyObjectByType<Waves>().IsCorrectTarget(gameObject))
+                {
+                    GameObject a = Instantiate(audioSource);
+                    audioSource.GetComponent<AudioSource>().clip = enemyAudioSource;
+
                     Destroy(gameObject);
+                }
+            }
         }
         
     }
     // Start is called before the first frame update
     void Start()
+    {
+
+    }
+
+    private void OnDestroy()
     {
         
     }

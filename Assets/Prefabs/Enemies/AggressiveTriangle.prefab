@@ -128,6 +128,8 @@ MonoBehaviour:
   ColourName: 1
   UIElement: {fileID: 7942702603427381635, guid: e61b4b7f83bc20846986b3ed8f7a1e6f, type: 3}
   Target: {fileID: 0}
+  enemyAudioSource: {fileID: 8300000, guid: 3da0136a59576a54a9963ce632b8489b, type: 3}
+  audioSource: {fileID: 8257707787254291229, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}
 --- !u!114 &9120603365745761751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,5 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e46169bbe2bdc4eae679973d31eba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 0}
+  enemyRef: {fileID: 6748796944437336219}
+  bulletPrefab: {fileID: 5750852812403110368, guid: a7736377b1930134aa127fc66451b204, type: 3}
+  fireForce: 20
   FireRateMax: 2

@@ -16,6 +16,9 @@ public class EnemyContinuousShot : MonoBehaviour
 
     public float FireRateMax = 2;
     private float fireRate = 0;
+
+    public Enemy EnemyRef { get => enemyRef; set => enemyRef = value; }
+
     void Start()
     {
         
@@ -29,8 +32,9 @@ public class EnemyContinuousShot : MonoBehaviour
         {
             fireRate = 0;
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody2D>().AddForce(-(transform.position- enemyRef.Target.transform.position).normalized * fireForce, ForceMode2D.Impulse);
             bullet.GetComponent<Bullet>().Shooter = gameObject;
+            bullet.GetComponent<Rigidbody2D>().AddForce(-(transform.position- enemyRef.Target.transform.position).normalized * fireForce, ForceMode2D.Impulse);
+            
         }
         else
             fireRate += Time.deltaTime;
