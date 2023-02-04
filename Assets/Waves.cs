@@ -23,27 +23,30 @@ public class Waves : MonoBehaviour
 
     void SpawnWave(int currentWave)
     {
-        Enemies = new Queue<EnemyType>();
-        if (EnemyWaveList[currentWave].RandomWaveFromPool)
+        if (currentWave < EnemyWaveList.Count)
         {
-            for (int i = 0; i < EnemyWaveList[currentWave].waveSize; i++)
+            Enemies = new Queue<EnemyType>();
+            if (EnemyWaveList[currentWave].RandomWaveFromPool)
             {
-                GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[Random.Range(0, EnemyWaveList[currentWave].enemyList.Length)], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
+                for (int i = 0; i < EnemyWaveList[currentWave].waveSize; i++)
+                {
+                    GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[Random.Range(0, EnemyWaveList[currentWave].enemyList.Length)], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                    Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
 
-                print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
-                DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+                    print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
+                    DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+                }
             }
-        }
-        else
-        {
-            for (int i = 0; i < EnemyWaveList[currentWave].enemyList.Length; i++)
+            else
             {
-                GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[i], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
+                for (int i = 0; i < EnemyWaveList[currentWave].enemyList.Length; i++)
+                {
+                    GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[i], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                    Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
 
-                print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
-                DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+                    print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
+                    DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+                }
             }
         }
     }
