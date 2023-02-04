@@ -553,10 +553,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 6.0587387
       objectReference: {fileID: 0}
-    - target: {fileID: 1444394638610099770, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
-      propertyPath: m_Name
-      value: BastardModeText
-      objectReference: {fileID: 0}
     - target: {fileID: 1961849683786937979, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: m_RootOrder
       value: 0
