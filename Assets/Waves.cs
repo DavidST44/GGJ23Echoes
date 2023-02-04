@@ -18,6 +18,7 @@ public class Waves : MonoBehaviour
         {
             GameObject Enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)],new Vector3(Random.Range(25,-25), Random.Range(15, -15), 0), Quaternion.identity);
             Enemies.Enqueue(Enemy);
+
             print("Enemy Spawned: " + Enemy.name);
         }
 
@@ -33,7 +34,7 @@ public class Waves : MonoBehaviour
         }
         else
         {
-            Enemies = new Queue<GameObject>(backup);
+            //Enemies = new Queue<GameObject>(backup);
             return false;
         }
     }
