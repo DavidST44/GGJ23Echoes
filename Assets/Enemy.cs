@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    public EnemyType ColourName;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
             if (GameObject.FindAnyObjectByType<Waves>().IsCorrectTarget(gameObject))
                 Destroy(gameObject);
-            else
-                Debug.Log("Wrong Target");
         }
         
     }
@@ -28,3 +26,4 @@ public class Enemy : MonoBehaviour
         
     }
 }
+public enum EnemyType { Green, Blue, Red };
