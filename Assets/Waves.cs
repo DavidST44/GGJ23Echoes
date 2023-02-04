@@ -5,29 +5,31 @@ using UnityEngine;
 public class Waves : MonoBehaviour
 {
 
-    Queue<GameObject> Enemies;
-    Queue<GameObject> backup;
+    Queue<EnemyType> Enemies;
+    Queue<EnemyType> backup;
     public GameObject[] enemyList;
     public int waveSize = 5;
 
     // Start is called before the first frame update
     void Start()
     {
-        Enemies = new Queue<GameObject>(); 
+        Enemies = new Queue<EnemyType>(); 
         for(int i = 0; i < waveSize; i++)
         {
             GameObject Enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)],new Vector3(Random.Range(25,-25), Random.Range(15, -15), 0), Quaternion.identity);
-            Enemies.Enqueue(Enemy);
+            Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
 
-            print("Enemy Spawned: " + Enemy.name);
+            Enemy.name = Enemy.name + " " + i;
         }
 
-        backup = new Queue<GameObject>(Enemies);
+        backup = new Queue<EnemyType>(Enemies);
+        foreach (EnemyType a in Enemies)
+            Debug.Log(a);
     }
 
     public bool IsCorrectTarget(GameObject enemy)
     {
-        if (Enemies.Peek() == enemy)
+        if (Enemies.Peek() == enemy.GetComponent<Enemy>().ColourName)
         {
             Enemies.Dequeue();
             return true;
