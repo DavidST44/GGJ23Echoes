@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     public GameObject audioSource;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject != Shooter || collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject != Shooter )
         {
             GameObject a = Instantiate(audioSource);
             audioSource.GetComponent<AudioSource>().clip = enemyAudioSource;
@@ -18,16 +18,5 @@ public class Bullet : MonoBehaviour
             //enemyAudioSource.Play();
             Destroy(gameObject);
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

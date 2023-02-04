@@ -16,6 +16,8 @@ public class Weapon : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+        bullet.GetComponent<Bullet>().Shooter = this.transform.parent.gameObject;
+        Destroy(bullet,5f);
     }
 
     // Start is called before the first frame update
