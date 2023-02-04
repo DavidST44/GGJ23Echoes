@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public EnemyType ColourName;
     public GameObject UIElement;
     public GameObject Target;
+    private AudioSource enemyAudioSource;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -19,6 +20,11 @@ public class Enemy : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
+    {
+
+    }
+
+    private void OnDestroy()
     {
         
     }
