@@ -142,6 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColourName: 2
   UIElement: {fileID: 4404840528319793557, guid: 0bbcc4b465e0a684e8beae7e223ce252, type: 3}
+  UITextMode: {fileID: 4587514233021383455, guid: 3fd6a648c90956f4c9d89c466a749bf2, type: 3}
+  wrongColour: {r: 0, g: 0.010392904, b: 1, a: 0}
   Target: {fileID: 0}
   enemyAudioSource: {fileID: 8300000, guid: e7d512cc444b78c46a79c2fa94626989, type: 3}
   audioSource: {fileID: 8257707787254291229, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}

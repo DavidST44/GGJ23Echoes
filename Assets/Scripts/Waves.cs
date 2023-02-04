@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Waves : MonoBehaviour
 {
+    public bool BastardMode = false;
     public GameObject PlayerRef;
     public GameObject bulletPrefab;
     public List<EnemyWave> EnemyWaveList = new List<EnemyWave>();
@@ -59,9 +60,21 @@ public class Waves : MonoBehaviour
 
     void CreateObj(GameObject Enemy, bool move, bool shoot, EnemySpawner spawner )
     {
-        GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
+        
+        if (!BastardMode)
+        {
+            GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
+            UIElement.transform.parent = IconContainer.transform;
+        }
+        else
+        {
+            GameObject UITextMode = Instantiate(Enemy.GetComponent<Enemy>().UITextMode);
+            Debug.Log(UITextMode);
+            UITextMode.transform.SetParent(IconContainer.transform);
+            UITextMode.GetComponent<Text>().text = Enemy.GetComponent<Enemy>().ColourName.ToString();
+            UITextMode.GetComponent<Text>().color = new Color( Enemy.GetComponent<Enemy>().wrongColour.r, Enemy.GetComponent<Enemy>().wrongColour.g, Enemy.GetComponent<Enemy>().wrongColour.b,1);
 
-        UIElement.transform.parent = IconContainer.transform;
+        }
         Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
         Enemy.GetComponent<Enemy>().Target = PlayerRef;
 

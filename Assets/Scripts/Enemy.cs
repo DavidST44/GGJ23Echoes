@@ -6,6 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public EnemyType ColourName;
     public GameObject UIElement;
+    public GameObject UITextMode;
+    public Color wrongColour;
     public GameObject Target;
     public AudioClip enemyAudioSource;
 
