@@ -203,6 +203,14 @@ PrefabInstance:
       propertyPath: DebugText
       value: 
       objectReference: {fileID: 1444394638610099768}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: PlayerRef
+      value: 
+      objectReference: {fileID: 1444394638674896003}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: IconContainer
+      value: 
+      objectReference: {fileID: 1444394638658408430}
     - target: {fileID: 3644342539785387355, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -315,6 +323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a863f957ff87fb429c6b3c2fd0e5e21, type: 3}
+--- !u!1 &1444394638674896003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3720823007634635614, guid: 6a863f957ff87fb429c6b3c2fd0e5e21, type: 3}
+  m_PrefabInstance: {fileID: 2857676396016934877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1444394638674896060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3720823007634635617, guid: 6a863f957ff87fb429c6b3c2fd0e5e21, type: 3}
@@ -444,3 +457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1444394638658408430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3454058463761696890, guid: de002c41323b38745866fab9589c4519, type: 3}
+  m_PrefabInstance: {fileID: 4315788310636398484}
+  m_PrefabAsset: {fileID: 0}
