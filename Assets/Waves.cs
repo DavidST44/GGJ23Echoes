@@ -24,14 +24,27 @@ public class Waves : MonoBehaviour
     void SpawnWave(int currentWave)
     {
         Enemies = new Queue<EnemyType>();
-
-        for (int i = 0; i < EnemyWaveList[currentWave].waveSize; i++)
+        if (EnemyWaveList[currentWave].RandomWaveFromPool)
         {
-            GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[Random.Range(0, EnemyWaveList[currentWave].enemyList.Length)], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-            Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
+            for (int i = 0; i < EnemyWaveList[currentWave].waveSize; i++)
+            {
+                GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[Random.Range(0, EnemyWaveList[currentWave].enemyList.Length)], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
 
-            print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
-            DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+                print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
+                DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < EnemyWaveList[currentWave].enemyList.Length; i++)
+            {
+                GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[i], new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
+
+                print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
+                DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
+            }
         }
     }
 
@@ -52,7 +65,7 @@ public class Waves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Enemies.Count > 0 )
+        if (Enemies.Count > 0 || currentWave > EnemyWaveList.Count)
         return;
 
         currentWave++;
@@ -64,7 +77,7 @@ public class Waves : MonoBehaviour
 [System.Serializable]
 public class EnemyWave
 {
-    bool RandomWaveFromPool;
+    public bool RandomWaveFromPool;
     public GameObject[] enemyList;
     public int waveSize = 5;
 }
