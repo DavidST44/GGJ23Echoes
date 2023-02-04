@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Waves : MonoBehaviour
 {
+    public GameObject PlayerRef;
+    
     public List<EnemyWave> EnemyWaveList = new List<EnemyWave>();
     Queue<EnemyType> Enemies;
 
@@ -15,6 +17,10 @@ public class Waves : MonoBehaviour
     public Image shitpost;
 
     public GameObject IconContainer;
+
+    float nextWaveTimer = 0;
+    [SerializeField] private float nextWaveTimerMax = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +42,9 @@ public class Waves : MonoBehaviour
                     GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
                     UIElement.transform.parent = IconContainer.transform;
 
+                    Enemy.GetComponent<Enemy>().Target = PlayerRef;
+
+
 
                     Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
 
@@ -51,6 +60,7 @@ public class Waves : MonoBehaviour
                     GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
                     UIElement.transform.parent = IconContainer.transform;
                     Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
+                    Enemy.GetComponent<Enemy>().Target = PlayerRef;
 
                     print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
                     DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
@@ -84,9 +94,15 @@ public class Waves : MonoBehaviour
             
             return;
         }
-        currentWave++;
-        DebugText.text = "";
-        SpawnWave(currentWave);
+        if (nextWaveTimer >= nextWaveTimerMax)
+        {
+            currentWave++;
+            DebugText.text = "";
+            SpawnWave(currentWave);
+            nextWaveTimer = 0;
+        }
+        else
+            nextWaveTimer += Time.deltaTime;
     }
 
 }

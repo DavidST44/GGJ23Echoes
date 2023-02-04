@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public GameObject Shooter;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject != Shooter || collision.gameObject.CompareTag("bullet"))
         Destroy(gameObject);
     }
     // Start is called before the first frame update
