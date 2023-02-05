@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6885544494737308854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: -2.29, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717c928bdd8fc1b49bc92d092e822184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 1
   ColourName: 1
   UIElement: {fileID: 7942702603427381635, guid: e61b4b7f83bc20846986b3ed8f7a1e6f, type: 3}
   UITextMode: {fileID: 4587514233021383455, guid: 3fd6a648c90956f4c9d89c466a749bf2, type: 3}
