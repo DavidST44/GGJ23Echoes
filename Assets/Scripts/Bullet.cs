@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
             //enemyAudioSource.Play();
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")&& collision.gameObject != Shooter)
         {
             Destroy(collision.gameObject);
             FindAnyObjectByType<Waves>().Alive = false;
