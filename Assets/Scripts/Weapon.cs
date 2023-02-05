@@ -11,7 +11,6 @@ public class Weapon : MonoBehaviour
 
 
 
-
     public void Fire()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -29,6 +28,5 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

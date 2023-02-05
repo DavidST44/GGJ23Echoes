@@ -44,20 +44,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47842591c4ba944d8a5879be385e35f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BastardMode: 0
   PlayerRef: {fileID: 0}
   bulletPrefab: {fileID: 5750852812403110368, guid: a7736377b1930134aa127fc66451b204, type: 3}
   EnemyWaveList:
   - RandomWaveFromPool: 0
     enemyList:
     - enemy: {fileID: 0}
+      HideUI: 0
       Move: 0
+      Speed: 2
+      Range: 3
+      MaxDistance: 6
       Shoot: 0
     - enemy: {fileID: 0}
+      HideUI: 0
       Move: 0
+      Speed: 2
+      Range: 3
+      MaxDistance: 6
       Shoot: 0
     waveSize: 2
   DebugText: {fileID: 0}
   shitpost: {fileID: 0}
+  UnknownUIElement: {fileID: 8757366502328910551, guid: a3663c941a40e409290871952175af47, type: 3}
   IconContainer: {fileID: 0}
   nextWaveTimerMax: 3
   audioSource: {fileID: 0}
+  GameOver: {fileID: 0}

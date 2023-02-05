@@ -21,7 +21,7 @@ public class EnemyContinuousShot : MonoBehaviour
 
     void Start()
     {
-            Target = enemyRef.Target;
+        Target = enemyRef.Target;
     }
 
     // Update is called once per frame
