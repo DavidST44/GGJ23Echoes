@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Waves : MonoBehaviour
@@ -23,6 +24,10 @@ public class Waves : MonoBehaviour
     [SerializeField] private float nextWaveTimerMax = 3;
     public GameObject audioSource;
 
+    public GameObject GameOver;
+    private bool alive = true;
+    float DieTimer = 2;
+    float RestartTimer = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -114,9 +119,20 @@ public class Waves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!alive)
+        {
+            DieTimer -= Time.deltaTime;
+            if (DieTimer<=0)
+            {
+                GameOver.transform.gameObject.SetActive(true);
+                RestartTimer -= Time.deltaTime;
+                if (RestartTimer<=0)
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            return;
+        }
         if (Enemies.Count > 0 || currentWave > EnemyWaveList.Count)
         {
-            
             return;
         }
         if (nextWaveTimer >= nextWaveTimerMax)
@@ -130,7 +146,14 @@ public class Waves : MonoBehaviour
             nextWaveTimer += Time.deltaTime;
     }
 
+    public bool Alive
+    {
+        set { alive = value; }
+    }
+
 }
+
+
 [System.Serializable]
 public class EnemyWave
 {

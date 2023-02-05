@@ -21,17 +21,20 @@ public class EnemyContinuousShot : MonoBehaviour
 
     void Start()
     {
-        
+        enemyRef.GetComponent<Enemy>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (enemyRef.Target == null)
+            return;
+        
         if (fireRate > FireRateMax)
         {
             fireRate = 0;
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+
             bullet.GetComponent<Bullet>().Shooter = gameObject;
             bullet.GetComponent<Rigidbody2D>().AddForce(-(transform.position- enemyRef.Target.transform.position).normalized * fireForce, ForceMode2D.Impulse);
             
