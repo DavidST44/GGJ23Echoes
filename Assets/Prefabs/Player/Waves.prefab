@@ -48,23 +48,101 @@ MonoBehaviour:
   PlayerRef: {fileID: 0}
   bulletPrefab: {fileID: 5750852812403110368, guid: a7736377b1930134aa127fc66451b204, type: 3}
   EnemyWaveList:
+  - RandomWaveFromPool: 1
+    enemyList:
+    - enemy: {fileID: 6885544494737308854, guid: 56ac1ea878141104c89b0961950d6739, type: 3}
+      HideUI: 0
+      Move: 0
+      Speed: 0
+      Range: 0
+      MaxDistance: 0
+      Shoot: 0
+    waveSize: 3
   - RandomWaveFromPool: 0
     enemyList:
-    - enemy: {fileID: 0}
+    - enemy: {fileID: 6885544494737308854, guid: 56ac1ea878141104c89b0961950d6739, type: 3}
       HideUI: 0
       Move: 0
+      Speed: 0
+      Range: 0
+      MaxDistance: 0
+      Shoot: 0
+    - enemy: {fileID: 4442521368934654697, guid: cacfbfe8c7a8b7447ac23fb3eb96febd, type: 3}
+      HideUI: 0
+      Move: 0
+      Speed: 0
+      Range: 0
+      MaxDistance: 0
+      Shoot: 0
+    waveSize: 4
+  - RandomWaveFromPool: 1
+    enemyList:
+    - enemy: {fileID: 3761408981348585139, guid: b75cbade04de14b4a9537e591df0bcbc, type: 3}
+      HideUI: 0
+      Move: 1
+      Speed: 1
+      Range: 2
+      MaxDistance: 5
+      Shoot: 0
+    - enemy: {fileID: 3761408981348585139, guid: b75cbade04de14b4a9537e591df0bcbc, type: 3}
+      HideUI: 0
+      Move: 1
+      Speed: 2
+      Range: 4
+      MaxDistance: 8
+      Shoot: 0
+    waveSize: 3
+  - RandomWaveFromPool: 1
+    enemyList:
+    - enemy: {fileID: 6885544494737308854, guid: 56ac1ea878141104c89b0961950d6739, type: 3}
+      HideUI: 0
+      Move: 1
       Speed: 2
       Range: 3
       MaxDistance: 6
       Shoot: 0
-    - enemy: {fileID: 0}
+    - enemy: {fileID: 4442521368934654697, guid: cacfbfe8c7a8b7447ac23fb3eb96febd, type: 3}
       HideUI: 0
-      Move: 0
-      Speed: 2
+      Move: 1
+      Speed: 3
+      Range: 6
+      MaxDistance: 12
+      Shoot: 0
+    waveSize: 4
+  - RandomWaveFromPool: 1
+    enemyList:
+    - enemy: {fileID: 6885544494737308854, guid: 56ac1ea878141104c89b0961950d6739, type: 3}
+      HideUI: 0
+      Move: 1
+      Speed: 4
       Range: 3
       MaxDistance: 6
       Shoot: 0
-    waveSize: 2
+    - enemy: {fileID: 4442521368934654697, guid: cacfbfe8c7a8b7447ac23fb3eb96febd, type: 3}
+      HideUI: 0
+      Move: 1
+      Speed: 5
+      Range: 8
+      MaxDistance: 16
+      Shoot: 0
+    waveSize: 6
+  - RandomWaveFromPool: 1
+    enemyList:
+    - enemy: {fileID: 6885544494737308854, guid: 56ac1ea878141104c89b0961950d6739, type: 3}
+      HideUI: 0
+      Move: 1
+      Speed: 6
+      Range: 6
+      MaxDistance: 8
+      Shoot: 0
+    - enemy: {fileID: 4442521368934654697, guid: cacfbfe8c7a8b7447ac23fb3eb96febd, type: 3}
+      HideUI: 0
+      Move: 1
+      Speed: 8
+      Range: 10
+      MaxDistance: 20
+      Shoot: 0
+    waveSize: 4
   DebugText: {fileID: 0}
   shitpost: {fileID: 0}
   UnknownUIElement: {fileID: 8757366502328910551, guid: a3663c941a40e409290871952175af47, type: 3}
