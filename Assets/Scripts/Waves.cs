@@ -28,6 +28,8 @@ public class Waves : MonoBehaviour
     private bool alive = true;
     float DieTimer = 2;
     float RestartTimer = 3;
+
+    public List<AudioSequence> AudioSequenceList = new List<AudioSequence>();
     // Start is called before the first frame update
     void Start()
     {
@@ -157,7 +159,11 @@ public class Waves : MonoBehaviour
     }
 
 }
-
+[System.Serializable]
+public class AudioSequence
+{
+    public List<AudioClip> AudioSequenceCollection = new List<AudioClip>();
+}
 
 [System.Serializable]
 public class EnemyWave

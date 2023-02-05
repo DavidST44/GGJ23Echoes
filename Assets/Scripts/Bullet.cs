@@ -12,8 +12,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject != Shooter )
         {
-            GameObject a = Instantiate(audioSource);
-            audioSource.GetComponent<AudioSource>().clip = enemyAudioSource;
+            //GameObject a = Instantiate(audioSource);
+            //audioSource.GetComponent<AudioSource>().clip = enemyAudioSource;
             //enemyAudioSource = collision.GetComponent<AudioSource>();
             //enemyAudioSource.Play();
             Destroy(gameObject);
