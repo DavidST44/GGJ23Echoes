@@ -9,7 +9,7 @@ public class EnemyContinuousShot : MonoBehaviour
     
     [SerializeField]
     private Enemy enemyRef;
-
+    private GameObject Target;
     public GameObject bulletPrefab;
     public float fireForce = 20f;
 
@@ -21,19 +21,22 @@ public class EnemyContinuousShot : MonoBehaviour
 
     void Start()
     {
-        
+            Target = enemyRef.Target;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Target == null)
+            return;
+        
         if (fireRate > FireRateMax)
         {
             fireRate = 0;
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+
             bullet.GetComponent<Bullet>().Shooter = gameObject;
-            bullet.GetComponent<Rigidbody2D>().AddForce(-(transform.position- enemyRef.Target.transform.position).normalized * fireForce, ForceMode2D.Impulse);
+            bullet.GetComponent<Rigidbody2D>().AddForce(-(transform.position- Target.transform.position).normalized * fireForce, ForceMode2D.Impulse);
             
         }
         else

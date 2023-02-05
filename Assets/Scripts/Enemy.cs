@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public int Health = 1;
     public EnemyType ColourName;
     public GameObject UIElement;
     public GameObject UITextMode;
@@ -22,8 +23,8 @@ public class Enemy : MonoBehaviour
                 {
                     GameObject a = Instantiate(audioSource);
                     audioSource.GetComponent<AudioSource>().clip = enemyAudioSource;
+                    Health--;
 
-                    Destroy(gameObject);
                 }
             }
         }
@@ -43,9 +44,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 dir = Target.transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        if (Target != null)
+        {
+            Vector3 dir = Target.transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            if (Health <= 0)
+                Destroy(gameObject);
+        }
     }
 }
 public enum EnemyType { Green, Blue, Red };
