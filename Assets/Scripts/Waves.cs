@@ -17,7 +17,7 @@ public class Waves : MonoBehaviour
     int currentWave;
     public Text DebugText;
     public Image shitpost;
-
+    public Image UnknownUIElement;
     public GameObject IconContainer;
 
     float nextWaveTimer = 0;
@@ -65,26 +65,32 @@ public class Waves : MonoBehaviour
 
     void CreateObj(GameObject Enemy, bool move, bool shoot, EnemySpawner spawner )
     {
-        
-        if (!BastardMode)
+        if (!spawner.HideUI)
         {
-            GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
-            UIElement.transform.parent = IconContainer.transform;
+            if (!BastardMode)
+            {
+                GameObject UIElement = Instantiate(Enemy.GetComponent<Enemy>().UIElement);
+                UIElement.transform.parent = IconContainer.transform;
+            }
+            else
+            {
+                GameObject UITextMode = Instantiate(Enemy.GetComponent<Enemy>().UITextMode);
+                Debug.Log(UITextMode);
+                UITextMode.transform.SetParent(IconContainer.transform);
+                UITextMode.GetComponent<Text>().text = Enemy.GetComponent<Enemy>().ColourName.ToString();
+                UITextMode.GetComponent<Text>().color = new Color(Enemy.GetComponent<Enemy>().wrongColour.r, Enemy.GetComponent<Enemy>().wrongColour.g, Enemy.GetComponent<Enemy>().wrongColour.b, 1);
+
+            }
         }
         else
         {
-            GameObject UITextMode = Instantiate(Enemy.GetComponent<Enemy>().UITextMode);
-            Debug.Log(UITextMode);
-            UITextMode.transform.SetParent(IconContainer.transform);
-            UITextMode.GetComponent<Text>().text = Enemy.GetComponent<Enemy>().ColourName.ToString();
-            UITextMode.GetComponent<Text>().color = new Color( Enemy.GetComponent<Enemy>().wrongColour.r, Enemy.GetComponent<Enemy>().wrongColour.g, Enemy.GetComponent<Enemy>().wrongColour.b,1);
-
+            GameObject UIElement = Instantiate(UnknownUIElement.gameObject);
+            UIElement.transform.parent = IconContainer.transform;
         }
         Enemies.Enqueue(Enemy.GetComponent<Enemy>().ColourName);
         Enemy.GetComponent<Enemy>().Target = PlayerRef;
 
         print("Enemy Spawned: " + Enemy.GetComponent<Enemy>().ColourName);
-        DebugText.text = DebugText.text + " " + Enemy.GetComponent<Enemy>().ColourName;
         if (move)
         {
             Enemy.AddComponent<MoveRandom>();
@@ -138,7 +144,6 @@ public class Waves : MonoBehaviour
         if (nextWaveTimer >= nextWaveTimerMax)
         {
             currentWave++;
-            DebugText.text = "";
             SpawnWave(currentWave);
             nextWaveTimer = 0;
         }
@@ -165,6 +170,7 @@ public class EnemyWave
 public class EnemySpawner
 {
     public GameObject enemy;
+    public bool HideUI;
     public bool Move;
     public float Speed =2;
     public float Range = 3;

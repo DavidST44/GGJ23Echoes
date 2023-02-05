@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
     public Weapon weapon;
 
     Vector2 moveDirection;
-    Vector2 mousePosition; 
+    Vector2 mousePosition;
 
+    public float fireForce = 20f;
+    public float Firerate = 0, FirerateMax = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +29,16 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            weapon.Fire(); 
+            if (Firerate >= FirerateMax)
+            { 
+                weapon.Fire();
+                Firerate = 0;
+            }
         }
+
+        Firerate += Time.deltaTime;
+        if (Firerate >= FirerateMax)
+            Firerate = 2;
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
