@@ -30,8 +30,12 @@ public class Waves : MonoBehaviour
     float RestartTimer = 3;
 
     public List<AudioSequence> AudioSequenceList = new List<AudioSequence>();
-    // Start is called before the first frame update
-    void Start()
+    public AudioSequence Kaazoo = new AudioSequence();
+    private int audioCollectionIndex = 0;
+    private int index = 0;
+
+// Start is called before the first frame update
+void Start()
     {
         SpawnWave(0);
 
@@ -119,8 +123,23 @@ public class Waves : MonoBehaviour
         }
         else
         {
+            GameObject a = Instantiate(audioSource);
+            audioSource.GetComponent<AudioSource>().clip = Kaazoo.AudioSequenceCollection[Mathf.RoundToInt(Random.Range(0, Kaazoo.AudioSequenceCollection.Count))];
+            audioSource.GetComponent<AudioSource>().Play();
             //Enemies = new Queue<GameObject>(backup);
             return false;
+        }
+    }
+
+    public void PlaySound()
+    {
+        GameObject a = Instantiate(audioSource);
+        audioSource.GetComponent<AudioSource>().clip = AudioSequenceList[audioCollectionIndex].AudioSequenceCollection[index];
+        audioSource.GetComponent<AudioSource>().Play();
+        index++;
+        if (index > AudioSequenceList[audioCollectionIndex].AudioSequenceCollection[index].length)
+        {
+            index = 0;
         }
     }
 
@@ -163,8 +182,8 @@ public class Waves : MonoBehaviour
 public class AudioSequence
 {
     public List<AudioClip> AudioSequenceCollection = new List<AudioClip>();
-}
 
+}
 [System.Serializable]
 public class EnemyWave
 {

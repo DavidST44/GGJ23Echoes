@@ -473,7 +473,7 @@ PrefabInstance:
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 1529751443}
+      objectReference: {fileID: 8257707787254291229, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.size
       value: 2
@@ -482,6 +482,46 @@ PrefabInstance:
       propertyPath: EnemyWaveList.Array.data[1].waveSize
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d4e7ecaacc09461b865c17a2f3f1fd9, type: 3}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a948f2bdc2f249aca93eab7fef74a29, type: 3}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 263664b3a909543f6afeb777b5db152c, type: 3}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: f5baf34b60ed845ffbcebad23b79b8a7, type: 3}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: cd4f93b5799c54213b8ae21a65caa5ca, type: 3}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4bfce99d8f2e0403e9de51aaea3ba857, type: 3}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4c17f0148f5a847ef88e8fe0e2708e7c, type: 3}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: c425390e059d1493592c9371946a7249, type: 3}
+    - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: Kaazoo.AudioSequenceCollection.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: c425390e059d1493592c9371946a7249, type: 3}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].RandomWaveFromPool
       value: 0
@@ -628,15 +668,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[1].HideUI
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[2].HideUI
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[3].HideUI
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[4].HideUI
@@ -644,7 +684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[5].HideUI
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[3].MaxDistance
@@ -681,6 +721,18 @@ PrefabInstance:
     - target: {fileID: 1444394637840400158, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: m_LocalPosition.z
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444394638658408431, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444394638658408431, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444394638658408431, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1444394638674896000, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: Firerate
@@ -761,11 +813,6 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1444394638674896060, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
   m_PrefabInstance: {fileID: 1328997028}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1529751443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8257707787254291229, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}
-  m_PrefabInstance: {fileID: 8257707786862449818}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1945684449
 GameObject:
@@ -993,6 +1040,10 @@ PrefabInstance:
     - target: {fileID: 8257707787254291216, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257707787254291219, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8257707787254291219, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}
       propertyPath: m_PlayOnAwake

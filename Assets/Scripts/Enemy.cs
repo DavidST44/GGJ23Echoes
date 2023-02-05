@@ -19,10 +19,9 @@ public class Enemy : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<Bullet>().Shooter != gameObject)
             {
-                if (GameObject.FindAnyObjectByType<Waves>().IsCorrectTarget(gameObject))
+                if (FindAnyObjectByType<Waves>().IsCorrectTarget(gameObject))
                 {
-                    GameObject a = Instantiate(audioSource);
-                    audioSource.GetComponent<AudioSource>().clip = enemyAudioSource;
+                    FindAnyObjectByType<Waves>().PlaySound();
                     Health--;
 
                 }
