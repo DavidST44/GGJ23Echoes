@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -51,17 +50,35 @@ void Start()
                 for (int i = 0; i < EnemyWaveList[currentWave].waveSize; i++)
                 {
                     int randomselection = Random.Range(0, EnemyWaveList[currentWave].enemyList.Length);
-                    GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[randomselection].enemy, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                    
-                    CreateObj(Enemy, EnemyWaveList[currentWave].enemyList[randomselection].Move, EnemyWaveList[currentWave].enemyList[randomselection].Shoot, EnemyWaveList[currentWave].enemyList[randomselection]);
+                    EnemySpawner enemySpawner = EnemyWaveList[currentWave].enemyList[randomselection];
+
+                    if (EnemyWaveList[currentWave].enemyList[randomselection].randomPos)
+                    {
+                        GameObject Enemy = Instantiate(enemySpawner.enemy, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                    }
+                    else
+                    {
+                        GameObject Enemy = Instantiate(enemySpawner.enemy, enemySpawner.Position, Quaternion.identity);
+                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                    }
                 }
             }
             else
             {
                 for (int i = 0; i < EnemyWaveList[currentWave].enemyList.Length; i++)
                 {
-                    GameObject Enemy = Instantiate(EnemyWaveList[currentWave].enemyList[i].enemy, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                    CreateObj(Enemy, EnemyWaveList[currentWave].enemyList[i].Move, EnemyWaveList[currentWave].enemyList[i].Shoot, EnemyWaveList[currentWave].enemyList[i]);
+                    EnemySpawner enemySpawner = EnemyWaveList[currentWave].enemyList[i];
+                    if (EnemyWaveList[currentWave].enemyList[i].randomPos)
+                    {
+                        GameObject Enemy = Instantiate(enemySpawner.enemy, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                    }
+                    else
+                    {
+                        GameObject Enemy = Instantiate(enemySpawner.enemy, enemySpawner.Position, Quaternion.identity);
+                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                    }
                 }
             }
         }
@@ -195,6 +212,8 @@ public class EnemyWave
 public class EnemySpawner
 {
     public GameObject enemy;
+    public bool randomPos;
+    public Vector3 Position; 
     public bool HideUI;
     public bool Move;
     public float Speed =2;

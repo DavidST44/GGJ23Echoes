@@ -552,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 9d4e7ecaacc09461b865c17a2f3f1fd9, type: 3}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].RandomWaveFromPool
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1444394637226794059, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: EnemyWaveList.Array.data[1].RandomWaveFromPool

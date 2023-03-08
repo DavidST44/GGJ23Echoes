@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444394637840400354}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -517.99915, y: -33.959583, z: 6.0587387}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -196,6 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1961849683786937979}
+  - component: {fileID: 2111352913360862113}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -223,6 +224,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2111352913360862113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844298751025664993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f162d4fbb48a584c8c13e3daf4e5dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelUp: 0
+  Player_TargetEXP: 50
+  Player_MaxHpIncrement: 1
+  Player_ShootSpdIncrement: 0.01
+  Player_MoveSpdIncrement: 0.01
+  Player_BulletSpdIncrement: 0.01
 --- !u!1001 &2781196512609263889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342,6 +361,18 @@ PrefabInstance:
       propertyPath: EnemyWaveList.Array.data[1].enemyList.Array.data[2].enemy
       value: 
       objectReference: {fileID: 4442521368934654697, guid: cacfbfe8c7a8b7447ac23fb3eb96febd, type: 3}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[0].Position.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[0].Position.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[0].Position.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].enemyList.Array.data[2].MaxDistance
       value: 6
