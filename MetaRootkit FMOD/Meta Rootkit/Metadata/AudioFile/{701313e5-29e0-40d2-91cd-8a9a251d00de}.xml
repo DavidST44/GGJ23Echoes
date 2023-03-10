@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{701313e5-29e0-40d2-91cd-8a9a251d00de}">
+		<property name="assetPath">
+			<value>Kazoo_-_D_1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>4.1059999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3c81dab4-c49c-440e-9d1a-821987699546}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -267,6 +267,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1444394638674896003}
     - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: AmmoPrefab
+      value: 
+      objectReference: {fileID: 5933961398733412487, guid: 35bdb4d9c2465c749bf424cbb0abc238, type: 3}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
       propertyPath: BastardMode
       value: 1
       objectReference: {fileID: 0}

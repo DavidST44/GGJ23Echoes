@@ -21,9 +21,8 @@ public class Enemy : MonoBehaviour
             {
                 if (FindAnyObjectByType<Waves>().IsCorrectTarget(gameObject))
                 {
-                    FindAnyObjectByType<Waves>().PlaySound();
+                    //FindAnyObjectByType<Waves>().PlaySound();
                     Health--;
-
                 }
             }
         }
@@ -31,10 +30,18 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
-            FindAnyObjectByType<Waves>().Alive = false;
+            if (collision.gameObject.GetComponent<PlayerController>().Health < 0)
+            {
+                Destroy(collision.gameObject);
+                FindAnyObjectByType<Waves>().Alive = false;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<PlayerController>().Health--;
+                collision.gameObject.GetComponent<PlayerController>().Invincible = true;
+            }
         }
 
     }

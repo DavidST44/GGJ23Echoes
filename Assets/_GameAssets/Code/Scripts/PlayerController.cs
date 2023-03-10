@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,13 +19,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float firerate = 0, firerateMax = 2;
 
+    private int health;
     private int ammo;
-
+    private bool invincible = false;
+    private float InvincibleTimer = 0;
+    private float InvincibleTimeMax = 3;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        ammo = PlayerProgression.Player_MaxAmmo;
     }
 
     // Update is called once per frame
@@ -37,8 +39,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (firerate >= firerateMax)
-            { 
+            if (firerate >= firerateMax && ammo > 0)
+            {
+                ammo--;
                 weapon.Fire();
                 firerate = 0;
             }
@@ -60,7 +63,18 @@ public class PlayerController : MonoBehaviour
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle; 
     }
-    public int Ammo { set => ammo = value; }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ammo")
+        {
+            ammo = PlayerProgression.Player_MaxAmmo;
+            Destroy(collision.gameObject);
+        }
+    }
+    public int Ammo { set => ammo = value; get { return ammo; } }
+    public int Health { set => health = value; get { return health; } }
     public float Firerate { get { return firerate; } }
     public float FirerateMax { get { return firerateMax; } }
+    public bool Invincible { set => invincible = value; get { return invincible; } }
 }

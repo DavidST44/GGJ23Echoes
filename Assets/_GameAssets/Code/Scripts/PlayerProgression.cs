@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerProgression : MonoBehaviour
 {
     public static PlayerProgression local;
-    public static float Player_MaxHp = 1, Player_ShootSpd = 0, Player_MoveSpd = 0, Player_BulletSpd = 0;
+    public static float Player_MaxHp = 3, Player_ShootSpd = 0, Player_MoveSpd = 0, Player_BulletSpd = 0;
 
     public static float Player_MaxHpCap= 100, Player_ShootSpdCap = 100, Player_MoveSpdCap = 100, Player_BulletSpdCap = 100;
-    public static int Player_Level, Player_EXP;
+    public static int Player_Level, Player_EXP, Player_MaxAmmo = 5, Player_MaxAmmoCap = 10;
     public bool LevelUp = false;
     [SerializeField]
     private int Player_TargetEXP = 50;

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Sirenix.OdinInspector;
 
 public class Waves : MonoBehaviour
 {
     public bool BastardMode = false;
     public GameObject PlayerRef;
     public GameObject bulletPrefab;
+    public GameObject AmmoPrefab;
     public List<EnemyWave> EnemyWaveList = new List<EnemyWave>();
     Queue<EnemyType> Enemies;
 
@@ -21,17 +23,17 @@ public class Waves : MonoBehaviour
 
     float nextWaveTimer = 0;
     [SerializeField] private float nextWaveTimerMax = 3;
-    public GameObject audioSource;
 
     public GameObject GameOver;
     private bool alive = true;
     float DieTimer = 2;
     float RestartTimer = 3;
 
-    public List<AudioSequence> AudioSequenceList = new List<AudioSequence>();
-    public AudioSequence Kaazoo = new AudioSequence();
     private int audioCollectionIndex = 0;
     private int index = 0;
+
+    private float SpawnAmmo = 0;
+    private float SpawnAmmoMax = 2;
 
 // Start is called before the first frame update
 void Start()
@@ -140,9 +142,8 @@ void Start()
         }
         else
         {
-            GameObject a = Instantiate(audioSource);
-            audioSource.GetComponent<AudioSource>().clip = Kaazoo.AudioSequenceCollection[Mathf.RoundToInt(Random.Range(0, Kaazoo.AudioSequenceCollection.Count))];
-            audioSource.GetComponent<AudioSource>().Play();
+            //GameObject a = Instantiate(audioSource);
+
             //Enemies = new Queue<GameObject>(backup);
             return false;
         }
@@ -150,14 +151,13 @@ void Start()
 
     public void PlaySound()
     {
-        GameObject a = Instantiate(audioSource);
-        audioSource.GetComponent<AudioSource>().clip = AudioSequenceList[audioCollectionIndex].AudioSequenceCollection[index];
-        audioSource.GetComponent<AudioSource>().Play();
+        //GameObject a = Instantiate(audioSource);
+
         index++;
-        if (index > AudioSequenceList[audioCollectionIndex].AudioSequenceCollection[index].length)
-        {
-            index = 0;
-        }
+        //if (index > AudioSequenceList[audioCollectionIndex].AudioSequenceCollection[index].length)
+        //{
+        //    index = 0;
+        //}
     }
 
     // Update is called once per frame
@@ -175,6 +175,23 @@ void Start()
             }
             return;
         }
+
+        if (PlayerRef.GetComponent<PlayerController>().Ammo <=0)
+        {
+            bool exists = GameObject.Find("AmmoCrate");
+            if (!exists)
+            {
+                if (SpawnAmmo < SpawnAmmoMax)
+                    SpawnAmmo += Time.deltaTime;
+                else
+                {
+                    GameObject a =Instantiate(AmmoPrefab, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                    a.name = "AmmoCrate";
+                    SpawnAmmo = 0;
+                }
+            }
+        }
+
         if (Enemies.Count > 0 || currentWave > EnemyWaveList.Count)
         {
             return;
@@ -212,12 +229,16 @@ public class EnemyWave
 public class EnemySpawner
 {
     public GameObject enemy;
-    public bool randomPos;
+    public bool randomPos = true;
+    [ShowIf("@randomPos == false")]
     public Vector3 Position; 
     public bool HideUI;
     public bool Move;
+    [ShowIf("@Move == true")]
     public float Speed =2;
+    [ShowIf("@Move == true")]
     public float Range = 3;
+    [ShowIf("@Move == true")]
     public float MaxDistance = 6;
     public bool Shoot;
 }

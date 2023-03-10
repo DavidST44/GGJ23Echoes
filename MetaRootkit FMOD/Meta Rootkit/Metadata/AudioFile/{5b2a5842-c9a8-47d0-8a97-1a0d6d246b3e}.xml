@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{5b2a5842-c9a8-47d0-8a97-1a0d6d246b3e}">
+		<property name="assetPath">
+			<value>Studio_Trumpet_8_-_B.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.8709583333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3c81dab4-c49c-440e-9d1a-821987699546}</destination>
+		</relationship>
+	</object>
+</objects>

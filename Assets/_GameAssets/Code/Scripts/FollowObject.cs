@@ -29,9 +29,12 @@ public class FollowObject : MonoBehaviour
         foreach(Transform a in Circles)
         {
             Image circle = a.GetComponent<Image>();
-            PlayerController player = Follow.GetComponent<PlayerController>();
-            //Debug.Log((player.Firerate / player.FirerateMax) * 1000);
-            circle.fillAmount = (player.Firerate / player.FirerateMax) * 1;
+            if (Follow != null)
+            {
+                PlayerController player = Follow.GetComponent<PlayerController>();
+                //Debug.Log((player.Firerate / player.FirerateMax) * 1000);
+                circle.fillAmount = (player.Firerate / player.FirerateMax) * 1;
+            }
         }
     }
 }
