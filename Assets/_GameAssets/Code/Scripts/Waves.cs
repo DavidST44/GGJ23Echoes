@@ -35,8 +35,7 @@ public class Waves : MonoBehaviour
     private float SpawnAmmo = 0;
     private float SpawnAmmoMax = 2;
 
-// Start is called before the first frame update
-void Start()
+    void Start()
     {
         SpawnWave(0);
 
@@ -88,7 +87,7 @@ void Start()
             shitpost.gameObject.SetActive(true);
     }
 
-    void CreateObj(GameObject Enemy, bool move, bool shoot, EnemySpawner spawner )
+    void CreateObj(GameObject Enemy, bool move, bool shoot, EnemySpawner spawner)
     {
         if (!spawner.HideUI)
         {
@@ -166,17 +165,17 @@ void Start()
         if (!alive)
         {
             DieTimer -= Time.deltaTime;
-            if (DieTimer<=0)
+            if (DieTimer <= 0)
             {
                 GameOver.transform.gameObject.SetActive(true);
                 RestartTimer -= Time.deltaTime;
-                if (RestartTimer<=0)
+                if (RestartTimer <= 0)
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
             return;
         }
 
-        if (PlayerRef.GetComponent<PlayerController>().Ammo <=0)
+        if (PlayerRef.GetComponent<PlayerController>().Ammo <= 0)
         {
             bool exists = GameObject.Find("AmmoCrate");
             if (!exists)
@@ -185,7 +184,7 @@ void Start()
                     SpawnAmmo += Time.deltaTime;
                 else
                 {
-                    GameObject a =Instantiate(AmmoPrefab, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                    GameObject a = Instantiate(AmmoPrefab, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
                     a.name = "AmmoCrate";
                     SpawnAmmo = 0;
                 }
@@ -210,25 +209,22 @@ void Start()
     {
         set { alive = value; }
     }
-
 }
-[System.Serializable]
-public class AudioSequence
-{
-    public List<AudioClip> AudioSequenceCollection = new List<AudioClip>();
 
-}
 [System.Serializable]
 public class EnemyWave
 {
     public bool RandomWaveFromPool;
     public EnemySpawner[] enemyList;
     public int waveSize = 5;
+
+
+
 }
 [System.Serializable]
-public class EnemySpawner
+public class EnemySpawner 
 {
-    public GameObject enemy;
+    [SerializeField] public GameObject enemy;
     public bool randomPos = true;
     [ShowIf("@randomPos == false")]
     public Vector3 Position; 

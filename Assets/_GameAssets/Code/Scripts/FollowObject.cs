@@ -19,9 +19,12 @@ public class FollowObject : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        var screenPos = MainCamera.WorldToScreenPoint(Follow.position);
+        if (Follow != null)
+        {
+            var screenPos = MainCamera.WorldToScreenPoint(Follow.position);
 
-        transform.position = screenPos;
+            transform.position = screenPos;
+        }
     }
 
     private void Update()

@@ -23,27 +23,11 @@ public class Enemy : MonoBehaviour
                 {
                     //FindAnyObjectByType<Waves>().PlaySound();
                     Health--;
+
                 }
             }
         }
         
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (collision.gameObject.GetComponent<PlayerController>().Health < 0)
-            {
-                Destroy(collision.gameObject);
-                FindAnyObjectByType<Waves>().Alive = false;
-            }
-            else
-            {
-                collision.gameObject.GetComponent<PlayerController>().Health--;
-                collision.gameObject.GetComponent<PlayerController>().Invincible = true;
-            }
-        }
-
     }
     // Start is called before the first frame update
     void Start()

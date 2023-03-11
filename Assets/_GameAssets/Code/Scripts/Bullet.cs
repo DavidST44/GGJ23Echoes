@@ -18,18 +18,6 @@ public class Bullet : MonoBehaviour
             //enemyAudioSource.Play();
             Destroy(gameObject);
         }
-        if (collision.gameObject.CompareTag("Player")&& collision.gameObject != Shooter)
-        {
-            if (collision.gameObject.GetComponent<PlayerController>().Health < 0)
-            {
-                Destroy(collision.gameObject);
-                FindAnyObjectByType<Waves>().Alive = false;
-            }
-            else
-            {
-                collision.gameObject.GetComponent<PlayerController>().Health--;
-                collision.gameObject.GetComponent<PlayerController>().Invincible = true;
-            }
-        }
+
     }
 }

@@ -24,16 +24,40 @@ public class PlayerController : MonoBehaviour
     private bool invincible = false;
     private float InvincibleTimer = 0;
     private float InvincibleTimeMax = 3;
+        
+    private float hpRegenTimer = 0;
+    private float hpRegenTimerTimeMax = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         ammo = PlayerProgression.Player_MaxAmmo;
+        health = PlayerProgression.Player_MaxHp;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (invincible)
+        {
+            if (InvincibleTimer < InvincibleTimeMax)
+                InvincibleTimer += Time.deltaTime;
+            else
+            {
+                InvincibleTimer = 0;
+                invincible= false;
+            }
+        }
+        if (health < PlayerProgression.Player_MaxHp)
+        {
+            if (hpRegenTimer < hpRegenTimerTimeMax)
+                hpRegenTimer += Time.deltaTime;
+            else
+            {
+                hpRegenTimer = 0;
+                health++;
+            }
+        }
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
@@ -70,6 +94,33 @@ public class PlayerController : MonoBehaviour
         {
             ammo = PlayerProgression.Player_MaxAmmo;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Bullet") && collision.gameObject.GetComponent<Bullet>().Shooter != this.gameObject)
+        {
+            HurtPlayer();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            HurtPlayer();
+        }
+    }
+
+    void HurtPlayer()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            FindAnyObjectByType<Waves>().Alive = false;
+        }
+        else
+        {
+            if (!invincible)
+            health--;
+            invincible = true;
         }
     }
     public int Ammo { set => ammo = value; get { return ammo; } }
