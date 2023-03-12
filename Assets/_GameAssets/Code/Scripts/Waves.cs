@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
+using System.IO;
 
 public class Waves : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class Waves : MonoBehaviour
 
     private float SpawnAmmo = 0;
     private float SpawnAmmoMax = 2;
+
+    public string NextScene;
 
     void Start()
     {
@@ -77,8 +80,16 @@ public class Waves : MonoBehaviour
                     }
                     else
                     {
-                        GameObject Enemy = Instantiate(enemySpawner.enemy, enemySpawner.Position, Quaternion.identity);
-                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                        if (!EnemyWaveList[currentWave].enemyList[i].UseGameObjectPos)
+                        { 
+                            GameObject Enemy = Instantiate(enemySpawner.enemy, enemySpawner.TargetPosition.position, Quaternion.identity);
+                            CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                        }
+                        else
+                        {
+                            GameObject Enemy = Instantiate(enemySpawner.enemy, enemySpawner.TargetPosition.position, Quaternion.identity);
+                            CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                        }
                     }
                 }
             }
@@ -191,10 +202,18 @@ public class Waves : MonoBehaviour
             }
         }
 
-        if (Enemies.Count > 0 || currentWave > EnemyWaveList.Count)
+        if (Enemies.Count > 0)
         {
             return;
         }
+        if (currentWave > EnemyWaveList.Count)
+        {
+            //check if move to next scene
+            SceneManager.LoadScene(NextScene);
+            return;
+        }
+
+    
         if (nextWaveTimer >= nextWaveTimerMax)
         {
             currentWave++;
@@ -217,9 +236,6 @@ public class EnemyWave
     public bool RandomWaveFromPool;
     public EnemySpawner[] enemyList;
     public int waveSize = 5;
-
-
-
 }
 [System.Serializable]
 public class EnemySpawner 
@@ -227,7 +243,11 @@ public class EnemySpawner
     [SerializeField] public GameObject enemy;
     public bool randomPos = true;
     [ShowIf("@randomPos == false")]
-    public Vector3 Position; 
+    public bool UseGameObjectPos = false;
+    [ShowIf("@UseGameObjectPos == false")]
+    public Vector3 Position;
+    [ShowIf("@UseGameObjectPos == true")]
+    public Transform TargetPosition;
     public bool HideUI;
     public bool Move;
     [ShowIf("@Move == true")]
