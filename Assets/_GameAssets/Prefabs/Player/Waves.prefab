@@ -47,10 +47,15 @@ MonoBehaviour:
   BastardMode: 0
   PlayerRef: {fileID: 0}
   bulletPrefab: {fileID: 5750852812403110368, guid: a7736377b1930134aa127fc66451b204, type: 3}
+  AmmoPrefab: {fileID: 0}
   EnemyWaveList:
   - RandomWaveFromPool: 0
     enemyList:
     - enemy: {fileID: 0}
+      randomPos: 1
+      UseGameObjectPos: 0
+      Position: {x: 0, y: 0, z: 0}
+      TargetPosition: {fileID: 0}
       HideUI: 0
       Move: 0
       Speed: 2
@@ -58,6 +63,10 @@ MonoBehaviour:
       MaxDistance: 6
       Shoot: 0
     - enemy: {fileID: 0}
+      randomPos: 1
+      UseGameObjectPos: 0
+      Position: {x: 0, y: 0, z: 0}
+      TargetPosition: {fileID: 0}
       HideUI: 0
       Move: 0
       Speed: 2
@@ -70,12 +79,6 @@ MonoBehaviour:
   UnknownUIElement: {fileID: 8757366502328910551, guid: a3663c941a40e409290871952175af47, type: 3}
   IconContainer: {fileID: 0}
   nextWaveTimerMax: 3
-  audioSource: {fileID: 0}
   GameOver: {fileID: 0}
-  AudioSequenceList:
-  - AudioSequenceCollection:
-    - {fileID: 8300000, guid: 6b6095de2bf4b2140adbff3dad70eee3, type: 3}
-    - {fileID: 8300000, guid: 9adcc26d006a86849863c4f9842d51be, type: 3}
-    - {fileID: 8300000, guid: 8957b07c408c7da4b990e571f61a251c, type: 3}
-    - {fileID: 8300000, guid: e7d512cc444b78c46a79c2fa94626989, type: 3}
-    - {fileID: 8300000, guid: 5c7e7bba0a2abc54ab6a5f5f3bff1ce0, type: 3}
+  MoveToNextScene: 1
+  NextScene: 

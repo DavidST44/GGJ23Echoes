@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int Health = 1;
+    public int EXPDrop = 5;
     public EnemyType ColourName;
     public GameObject UIElement;
     public GameObject UITextMode;
@@ -49,7 +50,10 @@ public class Enemy : MonoBehaviour
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             if (Health <= 0)
+            {
                 Destroy(gameObject);
+                PlayerProgression.local.IncreaseEXP(EXPDrop);
+            }
         }
     }
 }

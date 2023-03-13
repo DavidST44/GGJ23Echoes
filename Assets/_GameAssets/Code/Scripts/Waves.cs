@@ -35,7 +35,8 @@ public class Waves : MonoBehaviour
 
     private float SpawnAmmo = 0;
     private float SpawnAmmoMax = 2;
-
+    public bool MoveToNextScene = false;
+    [ShowIf("@MoveToNextScene == true")]
     public string NextScene;
 
     void Start()
