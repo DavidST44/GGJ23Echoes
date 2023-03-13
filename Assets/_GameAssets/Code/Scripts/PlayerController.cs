@@ -24,7 +24,10 @@ public class PlayerController : MonoBehaviour
     private bool invincible = false;
     private float InvincibleTimer = 0;
     private float InvincibleTimeMax = 3;
-        
+
+    private float BeginRegenHealth = 0;
+    private float BeginRegenHealthMax = 5;
+
     private float hpRegenTimer = 0;
     private float hpRegenTimerTimeMax = 3;
 
@@ -48,14 +51,21 @@ public class PlayerController : MonoBehaviour
                 invincible= false;
             }
         }
+
         if (health < PlayerProgression.Player_MaxHp)
         {
-            if (hpRegenTimer < hpRegenTimerTimeMax)
-                hpRegenTimer += Time.deltaTime;
-            else
+            BeginRegenHealth += Time.deltaTime;
+
+            if (BeginRegenHealth >= BeginRegenHealthMax)
             {
-                hpRegenTimer = 0;
-                health++;
+                if (hpRegenTimer < hpRegenTimerTimeMax)
+                    hpRegenTimer += Time.deltaTime;
+                else
+                {
+                    hpRegenTimer = 0;
+                    health++;
+                    PlayerProgression.local.HUD.UpdateHealthBar();
+                }
             }
         }
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -66,6 +76,7 @@ public class PlayerController : MonoBehaviour
             if (firerate >= firerateMax && ammo > 0)
             {
                 ammo--;
+                PlayerProgression.local.HUD.UpdateAmmo();
                 weapon.Fire();
                 firerate = 0;
             }
@@ -93,6 +104,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ammo")
         {
             ammo = PlayerProgression.Player_MaxAmmo;
+            PlayerProgression.local.HUD.UpdateAmmo();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Bullet") && collision.gameObject.GetComponent<Bullet>().Shooter != this.gameObject)
@@ -118,9 +130,14 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+
             if (!invincible)
-            health--;
-            invincible = true;
+            {
+                health--;
+                PlayerProgression.local.HUD.UpdateHealthBar();
+                BeginRegenHealth = 0;
+                invincible = true;
+            }
         }
     }
     public int Ammo { set => ammo = value; get { return ammo; } }
