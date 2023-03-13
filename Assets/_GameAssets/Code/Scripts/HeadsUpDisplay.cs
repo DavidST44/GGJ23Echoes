@@ -9,9 +9,17 @@ public class HeadsUpDisplay : MonoBehaviour
     public Image healthBarImage;
     public Image EXPBarImage;
     public Text AmmoAmount;
+    public Text PlayerLevel;
     [HideInInspector]
     public PlayerController player;
 
+    public void UpdateHud()
+    {
+        UpdateHealthBar();
+        UpdateEXPBar();
+        UpdateAmmo();
+        UpdateLevel();
+    }
 
     public void UpdateHealthBar()
     {
@@ -21,11 +29,15 @@ public class HeadsUpDisplay : MonoBehaviour
     }
     public void UpdateEXPBar()
     {
-        EXPBarImage.fillAmount = Mathf.Clamp(PlayerProgression.Player_EXP / PlayerProgression.Player_TargetEXP, 0, 1f);
+        EXPBarImage.fillAmount = Mathf.Clamp((float)PlayerProgression.Player_EXP / PlayerProgression.Player_TargetEXP, 0, 1f);
     }
 
     public void UpdateAmmo()
     {
         AmmoAmount.text = player.Ammo.ToString();
+    }
+    public void UpdateLevel()
+    {
+        PlayerLevel.text = PlayerProgression.Player_Level.ToString();
     }
 }

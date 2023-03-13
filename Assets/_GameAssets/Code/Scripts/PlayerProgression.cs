@@ -9,7 +9,7 @@ public class PlayerProgression : MonoBehaviour
     public static float Player_ShootSpd = 0, Player_MoveSpd = 0, Player_BulletSpd = 0;
 
     public static float Player_ShootSpdCap = 100, Player_MoveSpdCap = 100, Player_BulletSpdCap = 100;
-    public static int Player_Level, Player_EXP = 0, Player_TargetEXP, Player_MaxAmmo = 5, Player_MaxAmmoCap = 10, Player_MaxHp = 3, Player_MaxHpCap = 100;
+    public static int Player_Level = 0, Player_EXP = 0, Player_TargetEXP=10, Player_MaxAmmo = 5, Player_MaxAmmoCap = 10, Player_MaxHp = 3, Player_MaxHpCap = 100;
     public bool LevelUp = false;
 
     public HeadsUpDisplay HUD;
@@ -27,18 +27,22 @@ public class PlayerProgression : MonoBehaviour
     {
         local = this;
         HUD.player = player;
+        HUD.UpdateHud();
     }
 
     // Update is called once per frame
     public void IncreaseEXP(int amount)
     {
-        Player_EXP = amount;
 
+       
+        Player_EXP += amount;
+        HUD.UpdateEXPBar();
         if (Player_EXP >= Player_TargetEXP)
         {
-            Player_EXP = 0;
-            Player_Level++;
-            LevelUp = true;
+            Debug.Log("Hello");
+            Player_EXP -= ( Player_TargetEXP);
+            Player_Level += 1;
+            HUD.UpdateLevel();
         }
     }
 

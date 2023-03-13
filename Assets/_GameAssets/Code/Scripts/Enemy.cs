@@ -51,8 +51,9 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             if (Health <= 0)
             {
-                Destroy(gameObject);
                 PlayerProgression.local.IncreaseEXP(EXPDrop);
+                Destroy(gameObject);
+                
             }
         }
     }
