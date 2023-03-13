@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6885544494737308852}
   - component: {fileID: 6885544494737308853}
   - component: {fileID: 6885544494737308874}
+  - component: {fileID: 9086031604510920744}
   m_Layer: 0
   m_Name: BlueTriangle
   m_TagString: Enemy
@@ -125,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 1
+  EXPDrop: 5
   ColourName: 1
   UIElement: {fileID: 7942702603427381635, guid: e61b4b7f83bc20846986b3ed8f7a1e6f, type: 3}
   UITextMode: {fileID: 4587514233021383455, guid: 3fd6a648c90956f4c9d89c466a749bf2, type: 3}
@@ -132,3 +134,24 @@ MonoBehaviour:
   Target: {fileID: 0}
   enemyAudioSource: {fileID: 8300000, guid: 9adcc26d006a86849863c4f9842d51be, type: 3}
   audioSource: {fileID: 8257707787254291229, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}
+--- !u!50 &9086031604510920744
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885544494737308854}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

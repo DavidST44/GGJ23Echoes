@@ -60,12 +60,12 @@ public class Waves : MonoBehaviour
                     if (EnemyWaveList[currentWave].enemyList[randomselection].randomPos)
                     {
                         GameObject Enemy = Instantiate(enemySpawner.enemy, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner.Follow, enemySpawner);
                     }
                     else
                     {
                         GameObject Enemy = Instantiate(enemySpawner.enemy, enemySpawner.Position, Quaternion.identity);
-                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner.Follow, enemySpawner);
                     }
                 }
             }
@@ -77,19 +77,19 @@ public class Waves : MonoBehaviour
                     if (EnemyWaveList[currentWave].enemyList[i].randomPos)
                     {
                         GameObject Enemy = Instantiate(enemySpawner.enemy, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                        CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner.Follow, enemySpawner);
                     }
                     else
                     {
                         if (!EnemyWaveList[currentWave].enemyList[i].UseGameObjectPos)
                         { 
                             GameObject Enemy = Instantiate(enemySpawner.enemy, enemySpawner.TargetPosition.position, Quaternion.identity);
-                            CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                            CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner.Follow, enemySpawner);
                         }
                         else
                         {
                             GameObject Enemy = Instantiate(enemySpawner.enemy, enemySpawner.TargetPosition.position, Quaternion.identity);
-                            CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner);
+                            CreateObj(Enemy, enemySpawner.Move, enemySpawner.Shoot, enemySpawner.Follow, enemySpawner);
                         }
                     }
                 }
@@ -99,7 +99,7 @@ public class Waves : MonoBehaviour
             shitpost.gameObject.SetActive(true);
     }
 
-    void CreateObj(GameObject Enemy, bool move, bool shoot, EnemySpawner spawner)
+    void CreateObj(GameObject Enemy, bool move, bool shoot, bool follow, EnemySpawner spawner)
     {
         if (!spawner.HideUI)
         {
@@ -140,6 +140,13 @@ public class Waves : MonoBehaviour
             Enemy.AddComponent<EnemyContinuousShot>();
             Enemy.GetComponent<EnemyContinuousShot>().EnemyRef = Enemy.GetComponent<Enemy>();
             Enemy.GetComponent<EnemyContinuousShot>().bulletPrefab = bulletPrefab;
+        }
+        if (follow)
+        {
+            Enemy.AddComponent<EnemyFollowPlayer>();
+            Enemy.GetComponent<EnemyFollowPlayer>().player = GameObject.Find("Player"); ;
+            Enemy.GetComponent<EnemyFollowPlayer>().speed = spawner.followSpeed;
+            Enemy.GetComponent<EnemyFollowPlayer>().distanceBetween = spawner.distanceBetween;
         }
     }
 
@@ -258,4 +265,7 @@ public class EnemySpawner
     [ShowIf("@Move == true")]
     public float MaxDistance = 6;
     public bool Shoot;
+    public bool Follow;
+    public float followSpeed;
+    public float distanceBetween;
 }
