@@ -11,9 +11,10 @@ public class Enemy : MonoBehaviour
     public GameObject UITextMode;
     public Color wrongColour;
     public GameObject Target;
-    public AudioClip enemyAudioSource;
 
-    public GameObject audioSource;
+
+    [SerializeField] FMODUnity.EventReference[] WrongTarget, CorrectTarget; // pickup & drop ingredient
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")

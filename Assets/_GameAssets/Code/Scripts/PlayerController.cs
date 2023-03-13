@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    FMODUnity.EventReference Music;
+
+    [SerializeField]
     private float moveSpeed = 5f;
     [SerializeField]
     private Rigidbody2D rb;

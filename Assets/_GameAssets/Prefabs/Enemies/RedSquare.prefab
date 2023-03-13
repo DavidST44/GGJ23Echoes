@@ -125,10 +125,96 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 1
+  EXPDrop: 5
   ColourName: 2
   UIElement: {fileID: 4404840528319793557, guid: 0bbcc4b465e0a684e8beae7e223ce252, type: 3}
   UITextMode: {fileID: 4587514233021383455, guid: 3fd6a648c90956f4c9d89c466a749bf2, type: 3}
   wrongColour: {r: 0, g: 0.010392904, b: 1, a: 0}
   Target: {fileID: 0}
   enemyAudioSource: {fileID: 8300000, guid: 5c7e7bba0a2abc54ab6a5f5f3bff1ce0, type: 3}
-  audioSource: {fileID: 8257707787254291229, guid: ae9c2f98b1b86d54ebd028466883774a, type: 3}
+  WrongTarget:
+  - Guid:
+      Data1: -1973463959
+      Data2: 1170932426
+      Data3: -992680294
+      Data4: -85268871
+    Path: event:/Kazoo_-_A_1
+  - Guid:
+      Data1: -1621676739
+      Data2: 1175560962
+      Data3: -702507136
+      Data4: -106443562
+    Path: event:/Kazoo_-_A_1 1
+  - Guid:
+      Data1: 1334036160
+      Data2: 1132296696
+      Data3: 921201827
+      Data4: 1901161377
+    Path: event:/Kazoo_-_B_1
+  - Guid:
+      Data1: 2133661262
+      Data2: 1171798136
+      Data3: -305492320
+      Data4: 1267807472
+    Path: event:/Kazoo_-_D_1
+  - Guid:
+      Data1: 932746927
+      Data2: 1289452793
+      Data3: 676582307
+      Data4: -1151773526
+    Path: event:/Kazoo_Bb_1
+  - Guid:
+      Data1: -975354618
+      Data2: 1332752656
+      Data3: 60288388
+      Data4: -492605150
+    Path: event:/Kazoo_C_1
+  - Guid:
+      Data1: -1465877940
+      Data2: 1149883525
+      Data3: -1908071264
+      Data4: -1945884767
+    Path: event:/Kazoo_E_1
+  - Guid:
+      Data1: 1580800621
+      Data2: 1274954447
+      Data3: 714498706
+      Data4: -1295579823
+    Path: event:/Kazoo_G_1
+  CorrectTarget:
+  - Guid:
+      Data1: 870995665
+      Data2: 1146417322
+      Data3: -240559739
+      Data4: -1674607483
+    Path: event:/Studio_Trumpet_2_Bb
+  - Guid:
+      Data1: 752764549
+      Data2: 1210555379
+      Data3: -292936059
+      Data4: 1076697761
+    Path: event:/Studio_Trumpet_3_C
+  - Guid:
+      Data1: 706984462
+      Data2: 1099496461
+      Data3: 143714971
+      Data4: -1673460447
+    Path: event:/Studio_Trumpet_4_D
+  - Guid:
+      Data1: 1713573563
+      Data2: 1184915840
+      Data3: -787378021
+      Data4: -825984707
+    Path: event:/Studio_Trumpet_5_G
+  - Guid:
+      Data1: 1360155915
+      Data2: 1306313505
+      Data3: -1981426263
+      Data4: -204163174
+    Path: event:/Studio_Trumpet_6_E
+  - Guid:
+      Data1: -1963966614
+      Data2: 1291098007
+      Data3: 1079094176
+      Data4: 975971981
+    Path: event:/Studio_Trumpet_8_-_B
