@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class PlayerProgression : MonoBehaviour
 {
+    
+    [SerializeField]
+    public FMOD.Studio.EventInstance Music;
+    [SerializeField]
+    FMODUnity.EventReference MusicRef;
+
     public static PlayerProgression local;
     public PlayerController player;
     public static float Player_ShootSpd = 0, Player_MoveSpd = 0, Player_BulletSpd = 0;
@@ -30,6 +37,9 @@ public class PlayerProgression : MonoBehaviour
         HUD.UpdateHud();
         HUD.UpdateStats();
         LevelUpScreen.gameObject.SetActive(false);
+        Music = RuntimeManager.CreateInstance(MusicRef);
+        Music.start();
+        //StopSong();
     }
 
     // Update is called once per frame
@@ -64,4 +74,11 @@ public class PlayerProgression : MonoBehaviour
         HUD.UpdateStats();
 
     }
+
+
+    public void StopSong()
+    {
+        Music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
 }

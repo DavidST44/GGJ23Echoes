@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    FMODUnity.EventReference Music;
 
     [SerializeField]
     private float moveSpeed = 5f;
@@ -56,6 +54,8 @@ public class PlayerController : MonoBehaviour
     {
         ammo = PlayerProgression.Player_MaxAmmo;
         health = PlayerProgression.Player_MaxHp;
+        
+        
     }
 
     // Update is called once per frame
@@ -200,6 +200,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
+
     public int Ammo { set => ammo = value; get { return ammo; } }
     public int Health { set => health = value; get { return health; } }
     public float Firerate { get { return firerate; } }

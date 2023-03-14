@@ -35,6 +35,11 @@ namespace FMODUnity
 
             return new EventReference { Path = path, Guid = GuidLookupDelegate(path) };
         }
+
+        public void stop(FMOD.Studio.STOP_MODE aLLOWFADEOUT)
+        {
+            throw new NotImplementedException();
+        }
 #else
         public override string ToString()
         {

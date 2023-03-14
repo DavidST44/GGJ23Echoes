@@ -23,8 +23,25 @@ public class Enemy : MonoBehaviour
             {
                 if (FindAnyObjectByType<Waves>().IsCorrectTarget(gameObject))
                 {
-                    //FindAnyObjectByType<Waves>().PlaySound();
+                    int index = FindAnyObjectByType<Waves>().index;
+                    FMODUnity.RuntimeManager.PlayOneShot(CorrectTarget[index]);
+                    FindAnyObjectByType<Waves>().index++;
+                    if (FindAnyObjectByType<Waves>().index > CorrectTarget.Length-1)
+                    {
+                        FindAnyObjectByType<Waves>().index = 0;
+                    }
                     Health--;
+
+                }
+                else
+                {
+                    int index = FindAnyObjectByType<Waves>().index;
+                    FMODUnity.RuntimeManager.PlayOneShot(WrongTarget[index]);
+                    FindAnyObjectByType<Waves>().index++;
+                    if (FindAnyObjectByType<Waves>().index > WrongTarget.Length-1)
+                    {
+                        FindAnyObjectByType<Waves>().index = 0;
+                    }
 
                 }
             }

@@ -241,8 +241,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f162d4fbb48a584c8c13e3daf4e5dbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Music:
+    Guid:
+      Data1: -614390531
+      Data2: 1290953393
+      Data3: -167941237
+      Data4: -1145914147
+    Path: event:/Jazz_Backing_Track(1)
   player: {fileID: 1444394638674896000}
   LevelUp: 0
+  Pause: 0
   HUD: {fileID: 750331359047379984}
   LevelUpScreen: {fileID: 2905688563895365308}
   Player_MaxHpIncrement: 1
@@ -273,6 +281,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5933961398733412487, guid: 35bdb4d9c2465c749bf424cbb0abc238, type: 3}
     - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: Music.Path
+      value: event:/Jazz_Backing_Track(1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
       propertyPath: BastardMode
       value: 1
       objectReference: {fileID: 0}
@@ -280,6 +292,22 @@ PrefabInstance:
       propertyPath: IconContainer
       value: 
       objectReference: {fileID: 1444394638658408430}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: Music.Guid.Data1
+      value: -614390531
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: Music.Guid.Data2
+      value: 1290953393
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: Music.Guid.Data3
+      value: -167941237
+      objectReference: {fileID: 0}
+    - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
+      propertyPath: Music.Guid.Data4
+      value: -1145914147
+      objectReference: {fileID: 0}
     - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
       propertyPath: EnemyWaveList.Array.size
       value: 2
@@ -290,7 +318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
       propertyPath: EnemyWaveList.Array.data[1].waveSize
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3644342539785387354, guid: e4cb91b75b2c7a547ac7c23d0955a6f8, type: 3}
       propertyPath: EnemyWaveList.Array.data[0].RandomWaveFromPool

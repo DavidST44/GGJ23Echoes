@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
 using System.IO;
+using FMODUnity;
 
 public class Waves : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class Waves : MonoBehaviour
     float RestartTimer = 3;
 
     private int audioCollectionIndex = 0;
-    private int index = 0;
+    public int index = 0;
 
     private float SpawnAmmo = 0;
     private float SpawnAmmoMax = 2;
@@ -40,10 +41,11 @@ public class Waves : MonoBehaviour
     [ShowIf("@MoveToNextScene == true")]
     public string NextScene;
 
+
     void Start()
     {
         SpawnWave(0);
-
+        
         //backup = new Queue<GameObject>(Enemies);
     }
     void SpawnWave(int currentWave)
@@ -223,7 +225,9 @@ public class Waves : MonoBehaviour
         if (currentWave > EnemyWaveList.Count)
         {
             //check if move to next scene
+            PlayerProgression.local.StopSong();
             SceneManager.LoadScene(NextScene);
+            
             return;
         }
 
@@ -247,6 +251,7 @@ public class Waves : MonoBehaviour
             nextWaveTimer += Time.deltaTime;
 
     }
+
     public bool Alive
     {
         set { alive = value; }
