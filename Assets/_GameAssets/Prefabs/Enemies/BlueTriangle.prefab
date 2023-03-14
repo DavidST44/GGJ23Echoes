@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6885544494737308852}
   - component: {fileID: 6885544494737308853}
   - component: {fileID: 6885544494737308874}
+  - component: {fileID: -7831433686364111568}
   m_Layer: 0
   m_Name: BlueTriangle
   m_TagString: Enemy
@@ -131,7 +132,6 @@ MonoBehaviour:
   UITextMode: {fileID: 4587514233021383455, guid: 3fd6a648c90956f4c9d89c466a749bf2, type: 3}
   wrongColour: {r: 0.28527856, g: 1, b: 0, a: 0}
   Target: {fileID: 0}
-  enemyAudioSource: {fileID: 8300000, guid: 9adcc26d006a86849863c4f9842d51be, type: 3}
   WrongTarget:
   - Guid:
       Data1: -1973463959
@@ -218,3 +218,24 @@ MonoBehaviour:
       Data3: 1079094176
       Data4: 975971981
     Path: event:/Studio_Trumpet_8_-_B
+--- !u!50 &-7831433686364111568
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885544494737308854}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
