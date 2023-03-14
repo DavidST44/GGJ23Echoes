@@ -37,7 +37,7 @@ public class Waves : MonoBehaviour
 
     private float SpawnAmmo = 0;
     private float SpawnAmmoMax = 2;
-    public Transform[] AmmoBoxSpawnLocations
+    public Transform[] AmmoBoxSpawnLocations;
     public bool MoveToNextScene = false;
     [ShowIf("@MoveToNextScene == true")]
     public string NextScene;
