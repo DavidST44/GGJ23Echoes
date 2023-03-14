@@ -13,6 +13,8 @@ public class PlayerProgression : MonoBehaviour
 
     public static PlayerProgression local;
     public PlayerController player;
+    public static List<float> PlayerStats = new List<float>();
+
     public static float Player_ShootSpd = 0, Player_MoveSpd = 0, Player_BulletSpd = 0;
 
     public static float Player_ShootSpdCap = 100, Player_MoveSpdCap = 100, Player_BulletSpdCap = 100;
@@ -39,8 +41,32 @@ public class PlayerProgression : MonoBehaviour
         LevelUpScreen.gameObject.SetActive(false);
         Music = RuntimeManager.CreateInstance(MusicRef);
         Music.start();
+        LoadStats();
         //StopSong();
     }
+
+    public void SaveStats()
+    {
+        PlayerStats.Add(Player_ShootSpd);
+        PlayerStats.Add(Player_MoveSpd);
+        PlayerStats.Add(Player_BulletSpd);
+        PlayerStats.Add(Player_MaxHp);
+        PlayerStats.Add(Player_TargetEXP);
+        PlayerStats.Add(Player_EXP);
+        PlayerStats.Add(Player_Level);
+    }
+
+    public void LoadStats()
+    {
+        (Player_ShootSpd) = PlayerStats[0];
+        Player_MoveSpd = PlayerStats[1];
+        Player_BulletSpd = PlayerStats[2];
+        Player_MaxHp = (int)PlayerStats[3];
+        Player_EXP = (int)PlayerStats[4];
+        Player_EXP = (int)PlayerStats[5];
+        Player_Level = (int)PlayerStats[6];
+    }
+
 
     // Update is called once per frame
     public void IncreaseEXP(int amount)

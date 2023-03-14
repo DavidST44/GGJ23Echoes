@@ -2869,6 +2869,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2111352913360862113, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: MusicRef.Path
+      value: event:/Jazz_Backing_Track(1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111352913360862113, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: MusicRef.Guid.Data1
+      value: -614390531
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111352913360862113, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: MusicRef.Guid.Data2
+      value: 1290953393
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111352913360862113, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: MusicRef.Guid.Data3
+      value: -167941237
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111352913360862113, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
+      propertyPath: MusicRef.Guid.Data4
+      value: -1145914147
+      objectReference: {fileID: 0}
     - target: {fileID: 2823586417272037511, guid: 76c1fc30d12bc57419605048c001e8ed, type: 3}
       propertyPath: m_IsActive
       value: 0

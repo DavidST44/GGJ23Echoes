@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-
+    public int SceneIndex = 1;
     [SerializeField]
     private float moveSpeed = 5f;
     [SerializeField]
@@ -61,6 +62,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerProgression.local.SaveStats();
+            PlayerProgression.local.StopSong();
+            SceneManager.LoadScene(SceneIndex);
+        }
         if (invincible)
         {
             if (InvincibleTimer < InvincibleTimeMax)
@@ -93,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (firerate >= firerateMax && ammo > 0 && !PlayerProgression.local.Pause)
+            if (firerate >= (firerateMax - PlayerProgression.Player_ShootSpd) && ammo > 0 && !PlayerProgression.local.Pause)
             {
                 ammo--;
                 PlayerProgression.local.HUD.UpdateAmmo();
@@ -126,7 +133,7 @@ public class PlayerController : MonoBehaviour
 
         firerate += Time.deltaTime;
         if (firerate >= (firerateMax - PlayerProgression.Player_ShootSpd))
-            firerate = (2 - PlayerProgression.Player_ShootSpd);
+            firerate = (firerateMax - PlayerProgression.Player_ShootSpd);
 
         moveDirection = new Vector2(moveX, moveY).normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

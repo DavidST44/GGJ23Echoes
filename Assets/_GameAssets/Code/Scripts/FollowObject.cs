@@ -36,7 +36,7 @@ public class FollowObject : MonoBehaviour
             {
                 PlayerController player = Follow.GetComponent<PlayerController>();
                 //Debug.Log((player.Firerate / player.FirerateMax) * 1000);
-                circle.fillAmount = (player.Firerate / player.FirerateMax) * 1;
+                circle.fillAmount = (player.Firerate / (player.FirerateMax - PlayerProgression.Player_ShootSpd)) * 1;
             }
         }
     }

@@ -243,6 +243,7 @@ public class Waves : MonoBehaviour
         if (currentWave > EnemyWaveList.Count)
         {
             //check if move to next scene
+            PlayerProgression.local.SaveStats();
             PlayerProgression.local.StopSong();
             SceneManager.LoadScene(NextScene);
             
