@@ -27,7 +27,7 @@ public class Waves : MonoBehaviour
 
     public GameObject GameOver;
     private bool alive = true;
-    private bool pause = false;
+    
     float DieTimer = 2;
     float RestartTimer = 3;
 
@@ -175,12 +175,14 @@ public class Waves : MonoBehaviour
 
     void LevelUpScreen()
     {
-
+        PlayerProgression.local.LevelUpScreen.gameObject.SetActive(true);
     }
 
-    void LevelDone()
+    public void LevelUpDone()
     {
-        pause = false;
+        PlayerProgression.local.LevelUpScreen.gameObject.SetActive(false);
+        PlayerProgression.local.Pause = false;
+        PlayerProgression.local.LevelUp = false;
     }
     // Update is called once per frame
     void Update()
@@ -227,9 +229,9 @@ public class Waves : MonoBehaviour
 
         if (PlayerProgression.local.LevelUp)
         {
-            if (!pause)
+            if (!PlayerProgression.local.Pause)
             {
-                pause = true;
+                PlayerProgression.local.Pause = true;
                 LevelUpScreen();
             }
             return;
@@ -250,7 +252,6 @@ public class Waves : MonoBehaviour
         set { alive = value; }
     }
 
-    public bool Pause { get => pause; set => pause = value; }
 }
 
 [System.Serializable]

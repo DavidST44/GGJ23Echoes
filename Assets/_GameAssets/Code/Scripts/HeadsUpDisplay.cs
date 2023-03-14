@@ -13,11 +13,25 @@ public class HeadsUpDisplay : MonoBehaviour
     [HideInInspector]
     public PlayerController player;
 
+    public Text healthstat;
+    public Text movespeedstat;
+    public Text bulletspeedstat;
+    public Text shotdelaystat;
+
     public void UpdateHud()
     {
         UpdateHealthBar();
         UpdateEXPBar();
         UpdateAmmo();
+        UpdateLevel();
+    }
+
+    public void UpdateStats()
+    {
+        healthstat.text = PlayerProgression.Player_MaxHp.ToString();
+        movespeedstat.text = PlayerProgression.Player_MoveSpd.ToString();
+        bulletspeedstat.text = PlayerProgression.Player_BulletSpd.ToString();
+        shotdelaystat.text = PlayerProgression.Player_ShootSpd.ToString();
         UpdateLevel();
     }
 

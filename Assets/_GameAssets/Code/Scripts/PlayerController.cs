@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (firerate >= firerateMax && ammo > 0)
+            if (firerate >= firerateMax && ammo > 0 && !PlayerProgression.local.Pause)
             {
                 ammo--;
                 PlayerProgression.local.HUD.UpdateAmmo();
