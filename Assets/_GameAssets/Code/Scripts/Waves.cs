@@ -37,6 +37,7 @@ public class Waves : MonoBehaviour
 
     private float SpawnAmmo = 0;
     private float SpawnAmmoMax = 2;
+    public Transform[] AmmoBoxSpawnLocations
     public bool MoveToNextScene = false;
     [ShowIf("@MoveToNextScene == true")]
     public string NextScene;
@@ -211,9 +212,19 @@ public class Waves : MonoBehaviour
                     SpawnAmmo += Time.deltaTime;
                 else
                 {
-                    GameObject a = Instantiate(AmmoPrefab, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
-                    a.name = "AmmoCrate";
-                    SpawnAmmo = 0;
+                    if (AmmoBoxSpawnLocations.Length != 0)
+                    {
+                        int pos = Random.Range(0, AmmoBoxSpawnLocations.Length - 1);
+                        GameObject a = Instantiate(AmmoPrefab, AmmoBoxSpawnLocations[pos].position, Quaternion.identity);
+                        a.name = "AmmoCrate";
+                        SpawnAmmo = 0;
+                    }
+                    else
+                    {
+                        GameObject a = Instantiate(AmmoPrefab, new Vector3(Random.Range(25, -25), Random.Range(15, -15), 0), Quaternion.identity);
+                        a.name = "AmmoCrate";
+                        SpawnAmmo = 0;
+                    }
                 }
             }
         }
