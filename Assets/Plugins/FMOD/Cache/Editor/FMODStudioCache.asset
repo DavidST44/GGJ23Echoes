@@ -123,7 +123,7 @@ MonoBehaviour:
   Path: MetaRootkit FMOD/Meta Rootkit/Build/Desktop/Death Cue.bank
   Name: Death Cue
   StudioPath: bank:/Death Cue
-  lastModified: 638144019227376171
+  lastModified: 638143604372526040
   FileSizes:
   - Name: Desktop
     Value: 150464
@@ -247,7 +247,7 @@ MonoBehaviour:
   - {fileID: 655763369956504160}
   StringsBanks:
   - {fileID: 6187432352078617749}
-  cacheTime: 638144019227395454
+  cacheTime: 638143604372576033
   cacheVersion: 131601
 --- !u!114 &234821971436044498
 MonoBehaviour:
@@ -291,7 +291,7 @@ MonoBehaviour:
   Path: MetaRootkit FMOD/Meta Rootkit/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638144019227392868
+  lastModified: 638143604372566034
   FileSizes:
   - Name: Desktop
     Value: 822080
@@ -446,7 +446,7 @@ MonoBehaviour:
   Path: MetaRootkit FMOD/Meta Rootkit/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638144019227395454
+  lastModified: 638143604372576033
   FileSizes:
   - Name: Desktop
     Value: 1402
@@ -493,7 +493,7 @@ MonoBehaviour:
   Path: MetaRootkit FMOD/Meta Rootkit/Build/Desktop/Kazoo Death.bank
   Name: Kazoo Death
   StudioPath: bank:/Kazoo Death
-  lastModified: 638144019227379868
+  lastModified: 638143604372536036
   FileSizes:
   - Name: Desktop
     Value: 253472

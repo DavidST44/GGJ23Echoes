@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: a46a6cffdbf4aa9428ff635b4947b31a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -147,7 +147,6 @@ MonoBehaviour:
   UITextMode: {fileID: 4587514233021383455, guid: 3fd6a648c90956f4c9d89c466a749bf2, type: 3}
   wrongColour: {r: 0, g: 0.010392904, b: 1, a: 0}
   Target: {fileID: 0}
-  enemyAudioSource: {fileID: 8300000, guid: e7d512cc444b78c46a79c2fa94626989, type: 3}
   WrongTarget:
   - Guid:
       Data1: -1973463959
