@@ -27,6 +27,7 @@ public class Waves : MonoBehaviour
 
     public GameObject GameOver;
     private bool alive = true;
+    private bool pause = false;
     float DieTimer = 2;
     float RestartTimer = 3;
 
@@ -171,6 +172,16 @@ public class Waves : MonoBehaviour
         //}
     }
 
+
+    void LevelUpScreen()
+    {
+
+    }
+
+    void LevelDone()
+    {
+        pause = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -204,9 +215,9 @@ public class Waves : MonoBehaviour
         }
 
         if (Enemies.Count > 0)
-        {
             return;
-        }
+
+
         if (currentWave > EnemyWaveList.Count)
         {
             //check if move to next scene
@@ -214,7 +225,16 @@ public class Waves : MonoBehaviour
             return;
         }
 
-    
+        if (PlayerProgression.local.LevelUp)
+        {
+            if (!pause)
+            {
+                pause = true;
+                LevelUpScreen();
+            }
+            return;
+        }
+
         if (nextWaveTimer >= nextWaveTimerMax)
         {
             currentWave++;
@@ -223,12 +243,14 @@ public class Waves : MonoBehaviour
         }
         else
             nextWaveTimer += Time.deltaTime;
-    }
 
+    }
     public bool Alive
     {
         set { alive = value; }
     }
+
+    public bool Pause { get => pause; set => pause = value; }
 }
 
 [System.Serializable]

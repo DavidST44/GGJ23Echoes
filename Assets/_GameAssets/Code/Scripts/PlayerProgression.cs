@@ -43,6 +43,7 @@ public class PlayerProgression : MonoBehaviour
             Player_EXP -= ( Player_TargetEXP);
             Player_Level += 1;
             HUD.UpdateLevel();
+            LevelUp = true;
         }
     }
 
