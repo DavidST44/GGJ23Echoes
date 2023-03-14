@@ -1,5 +1,214 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5895177661488105080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Kazoo_-_A_1 1
+  m_EditorClassIdentifier: 
+  Path: event:/Kazoo_-_A_1 1
+  Guid:
+    Data1: -1621676739
+    Data2: 1175560962
+    Data3: -702507136
+    Data4: -106443562
+  Banks:
+  - {fileID: 8203120129181050568}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4106
+--- !u!114 &-5475026485711465912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Kazoo_G_1
+  m_EditorClassIdentifier: 
+  Path: event:/Kazoo_G_1
+  Guid:
+    Data1: 1580800621
+    Data2: 1274954447
+    Data3: 714498706
+    Data4: -1295579823
+  Banks:
+  - {fileID: 8203120129181050568}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4106
+--- !u!114 &-5355499236168721297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Kazoo_-_B_1
+  m_EditorClassIdentifier: 
+  Path: event:/Kazoo_-_B_1
+  Guid:
+    Data1: 1334036160
+    Data2: 1132296696
+    Data3: 921201827
+    Data4: 1901161377
+  Banks:
+  - {fileID: 8203120129181050568}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4106
+--- !u!114 &-4809605143638498839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Jazz_Backing_Track(1)
+  m_EditorClassIdentifier: 
+  Path: event:/Jazz_Backing_Track(1)
+  Guid:
+    Data1: -614390531
+    Data2: 1290953393
+    Data3: -167941237
+    Data4: -1145914147
+  Banks:
+  - {fileID: 655763369956504160}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 61992
+--- !u!114 &-4139137282392151863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Death Cue.bank
+  m_EditorClassIdentifier: 
+  Path: MetaRootkit FMOD/Meta Rootkit/Build/Desktop/Death Cue.bank
+  Name: Death Cue
+  StudioPath: bank:/Death Cue
+  lastModified: 638144019227376171
+  FileSizes:
+  - Name: Desktop
+    Value: 150464
+  Exists: 1
+--- !u!114 &-2670391207589415664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Studio_Trumpet_6_E
+  m_EditorClassIdentifier: 
+  Path: event:/Studio_Trumpet_6_E
+  Guid:
+    Data1: 1360155915
+    Data2: 1306313505
+    Data3: -1981426263
+    Data4: -204163174
+  Banks:
+  - {fileID: -4139137282392151863}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3870
+--- !u!114 &-1640280764955928915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Kazoo_-_D_1
+  m_EditorClassIdentifier: 
+  Path: event:/Kazoo_-_D_1
+  Guid:
+    Data1: 2133661262
+    Data2: 1171798136
+    Data3: -305492320
+    Data4: 1267807472
+  Banks:
+  - {fileID: 8203120129181050568}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4106
+--- !u!114 &-544498720719115940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Studio_Trumpet_2_Bb
+  m_EditorClassIdentifier: 
+  Path: event:/Studio_Trumpet_2_Bb
+  Guid:
+    Data1: 870995665
+    Data2: 1146417322
+    Data3: -240559739
+    Data4: -1674607483
+  Banks:
+  - {fileID: -4139137282392151863}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3870
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,14 +224,58 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 6187432352078617749}
   - {fileID: 655763369956504160}
-  EditorEvents: []
+  - {fileID: -4139137282392151863}
+  - {fileID: 8203120129181050568}
+  EditorEvents:
+  - {fileID: 234821971436044498}
+  - {fileID: -2670391207589415664}
+  - {fileID: 2469038650636763472}
+  - {fileID: -5895177661488105080}
+  - {fileID: 4145847472666560453}
+  - {fileID: -1640280764955928915}
+  - {fileID: 2192284523610362978}
+  - {fileID: 8067756191957106379}
+  - {fileID: -5475026485711465912}
+  - {fileID: 1174721084112700795}
+  - {fileID: 5869077721244699107}
+  - {fileID: 8700633785186654910}
+  - {fileID: -5355499236168721297}
+  - {fileID: -544498720719115940}
+  - {fileID: -4809605143638498839}
   EditorParameters: []
   MasterBanks:
   - {fileID: 655763369956504160}
   StringsBanks:
   - {fileID: 6187432352078617749}
-  cacheTime: 638140742786256077
+  cacheTime: 638144019227395454
   cacheVersion: 131601
+--- !u!114 &234821971436044498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Kazoo_C_1
+  m_EditorClassIdentifier: 
+  Path: event:/Kazoo_C_1
+  Guid:
+    Data1: -975354618
+    Data2: 1332752656
+    Data3: 60288388
+    Data4: -492605150
+  Banks:
+  - {fileID: 8203120129181050568}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4106
 --- !u!114 &655763369956504160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,11 +291,146 @@ MonoBehaviour:
   Path: MetaRootkit FMOD/Meta Rootkit/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638140742786107906
+  lastModified: 638144019227392868
   FileSizes:
   - Name: Desktop
-    Value: 1000
+    Value: 822080
   Exists: 1
+--- !u!114 &1174721084112700795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Studio_Trumpet_3_C
+  m_EditorClassIdentifier: 
+  Path: event:/Studio_Trumpet_3_C
+  Guid:
+    Data1: 752764549
+    Data2: 1210555379
+    Data3: -292936059
+    Data4: 1076697761
+  Banks:
+  - {fileID: -4139137282392151863}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3870
+--- !u!114 &2192284523610362978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Kazoo_-_A_1
+  m_EditorClassIdentifier: 
+  Path: event:/Kazoo_-_A_1
+  Guid:
+    Data1: -1973463959
+    Data2: 1170932426
+    Data3: -992680294
+    Data4: -85268871
+  Banks:
+  - {fileID: 8203120129181050568}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4106
+--- !u!114 &2469038650636763472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Studio_Trumpet_4_D
+  m_EditorClassIdentifier: 
+  Path: event:/Studio_Trumpet_4_D
+  Guid:
+    Data1: 706984462
+    Data2: 1099496461
+    Data3: 143714971
+    Data4: -1673460447
+  Banks:
+  - {fileID: -4139137282392151863}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3870
+--- !u!114 &4145847472666560453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Kazoo_E_1
+  m_EditorClassIdentifier: 
+  Path: event:/Kazoo_E_1
+  Guid:
+    Data1: -1465877940
+    Data2: 1149883525
+    Data3: -1908071264
+    Data4: -1945884767
+  Banks:
+  - {fileID: 8203120129181050568}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4106
+--- !u!114 &5869077721244699107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Kazoo_Bb_1
+  m_EditorClassIdentifier: 
+  Path: event:/Kazoo_Bb_1
+  Guid:
+    Data1: 932746927
+    Data2: 1289452793
+    Data3: 676582307
+    Data4: -1151773526
+  Banks:
+  - {fileID: 8203120129181050568}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2740
 --- !u!114 &6187432352078617749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,8 +446,82 @@ MonoBehaviour:
   Path: MetaRootkit FMOD/Meta Rootkit/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638140742786256077
+  lastModified: 638144019227395454
   FileSizes:
   - Name: Desktop
-    Value: 688
+    Value: 1402
   Exists: 1
+--- !u!114 &8067756191957106379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Studio_Trumpet_8_-_B
+  m_EditorClassIdentifier: 
+  Path: event:/Studio_Trumpet_8_-_B
+  Guid:
+    Data1: -1963966614
+    Data2: 1291098007
+    Data3: 1079094176
+    Data4: 975971981
+  Banks:
+  - {fileID: -4139137282392151863}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3870
+--- !u!114 &8203120129181050568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Kazoo Death.bank
+  m_EditorClassIdentifier: 
+  Path: MetaRootkit FMOD/Meta Rootkit/Build/Desktop/Kazoo Death.bank
+  Name: Kazoo Death
+  StudioPath: bank:/Kazoo Death
+  lastModified: 638144019227379868
+  FileSizes:
+  - Name: Desktop
+    Value: 253472
+  Exists: 1
+--- !u!114 &8700633785186654910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Studio_Trumpet_5_G
+  m_EditorClassIdentifier: 
+  Path: event:/Studio_Trumpet_5_G
+  Guid:
+    Data1: 1713573563
+    Data2: 1184915840
+    Data3: -787378021
+    Data4: -825984707
+  Banks:
+  - {fileID: -4139137282392151863}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3870

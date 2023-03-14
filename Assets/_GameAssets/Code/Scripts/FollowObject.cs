@@ -17,7 +17,7 @@ public class FollowObject : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (Follow != null)
         {

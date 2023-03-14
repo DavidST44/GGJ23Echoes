@@ -13,10 +13,13 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * (fireForce + PlayerProgression.Player_BulletSpd), ForceMode2D.Impulse);
-        bullet.GetComponent<Bullet>().Shooter = transform.parent.gameObject;
-        Destroy(bullet,5f);
+        if (!PlayerProgression.local.Pause)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * (fireForce + PlayerProgression.Player_BulletSpd), ForceMode2D.Impulse);
+            bullet.GetComponent<Bullet>().Shooter = transform.parent.gameObject;
+            Destroy(bullet, 5f);
+        }
     }
 
     // Start is called before the first frame update

@@ -11,9 +11,10 @@ public class Enemy : MonoBehaviour
     public GameObject UITextMode;
     public Color wrongColour;
     public GameObject Target;
-    public AudioClip enemyAudioSource;
 
-    public GameObject audioSource;
+
+    [SerializeField] FMODUnity.EventReference[] WrongTarget, CorrectTarget; // pickup & drop ingredient
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -22,8 +23,25 @@ public class Enemy : MonoBehaviour
             {
                 if (FindAnyObjectByType<Waves>().IsCorrectTarget(gameObject))
                 {
-                    //FindAnyObjectByType<Waves>().PlaySound();
+                    int index = FindAnyObjectByType<Waves>().index;
+                    FMODUnity.RuntimeManager.PlayOneShot(CorrectTarget[index]);
+                    FindAnyObjectByType<Waves>().index++;
+                    if (FindAnyObjectByType<Waves>().index > CorrectTarget.Length-1)
+                    {
+                        FindAnyObjectByType<Waves>().index = 0;
+                    }
                     Health--;
+
+                }
+                else
+                {
+                    int index = FindAnyObjectByType<Waves>().index;
+                    FMODUnity.RuntimeManager.PlayOneShot(WrongTarget[index]);
+                    FindAnyObjectByType<Waves>().index++;
+                    if (FindAnyObjectByType<Waves>().index > WrongTarget.Length-1)
+                    {
+                        FindAnyObjectByType<Waves>().index = 0;
+                    }
 
                 }
             }
@@ -51,8 +69,9 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             if (Health <= 0)
             {
-                Destroy(gameObject);
                 PlayerProgression.local.IncreaseEXP(EXPDrop);
+                Destroy(gameObject);
+                
             }
         }
     }

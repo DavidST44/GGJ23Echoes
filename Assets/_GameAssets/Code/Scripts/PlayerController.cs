@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     [SerializeField]
     private float moveSpeed = 5f;
     [SerializeField]
@@ -24,15 +25,37 @@ public class PlayerController : MonoBehaviour
     private bool invincible = false;
     private float InvincibleTimer = 0;
     private float InvincibleTimeMax = 3;
-        
+
+    private float BeginRegenHealth = 0;
+    private float BeginRegenHealthMax = 5;
+
     private float hpRegenTimer = 0;
     private float hpRegenTimerTimeMax = 3;
+
+
+    [SerializeField]
+    private float DodgeSpeed = 10;
+    [SerializeField]
+    private float DodgeTimer = 2;
+    [SerializeField]
+    private float DodgeTimerMax = 2;
+
+    private Vector2 dodgeVel;
+
+    private bool dodge = false;
+
+    [SerializeField]
+    private float DodgeMoveTimer = 1;
+    [SerializeField]
+    private float DodgeMoveTimerMax = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         ammo = PlayerProgression.Player_MaxAmmo;
         health = PlayerProgression.Player_MaxHp;
+        
+        
     }
 
     // Update is called once per frame
@@ -48,14 +71,21 @@ public class PlayerController : MonoBehaviour
                 invincible= false;
             }
         }
+
         if (health < PlayerProgression.Player_MaxHp)
         {
-            if (hpRegenTimer < hpRegenTimerTimeMax)
-                hpRegenTimer += Time.deltaTime;
-            else
+            BeginRegenHealth += Time.deltaTime;
+
+            if (BeginRegenHealth >= BeginRegenHealthMax)
             {
-                hpRegenTimer = 0;
-                health++;
+                if (hpRegenTimer < hpRegenTimerTimeMax)
+                    hpRegenTimer += Time.deltaTime;
+                else
+                {
+                    hpRegenTimer = 0;
+                    health++;
+                    PlayerProgression.local.HUD.UpdateHealthBar();
+                }
             }
         }
         float moveX = Input.GetAxisRaw("Horizontal");
@@ -63,12 +93,35 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (firerate >= firerateMax && ammo > 0)
+            if (firerate >= firerateMax && ammo > 0 && !PlayerProgression.local.Pause)
             {
                 ammo--;
+                PlayerProgression.local.HUD.UpdateAmmo();
                 weapon.Fire();
                 firerate = 0;
             }
+        }
+
+        if (DodgeTimer >= DodgeTimerMax)
+        {
+            DodgeTimer = DodgeTimerMax;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                dodge = true;
+                DodgeTimer = 0;
+            }
+        }
+        else
+        {
+            DodgeTimer += Time.deltaTime;
+        }
+
+        if (dodge)
+            Dodging();
+
+        if (DodgeMoveTimer < DodgeMoveTimerMax && !dodge)
+        {
+            DodgeMoveTimer += Time.deltaTime;
         }
 
         firerate += Time.deltaTime;
@@ -79,9 +132,27 @@ public class PlayerController : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
+    void Dodging()
+    {
+        if (DodgeMoveTimer >= 0)
+        {
+            invincible = true;
+            DodgeMoveTimer -= Time.deltaTime;
+            dodgeVel = (moveDirection * DodgeSpeed);
+        }
+        else
+        {
+            dodgeVel = Vector2.zero;
+            DodgeMoveTimer = DodgeMoveTimerMax;
+            dodge = false;
+            InvincibleTimer = 0;
+            invincible = false;
+        }
+    }
+
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveDirection.x * (moveSpeed + PlayerProgression.Player_MoveSpd), moveDirection.y * (moveSpeed + PlayerProgression.Player_MoveSpd));
+        rb.velocity = new Vector2(moveDirection.x * (moveSpeed + PlayerProgression.Player_MoveSpd), moveDirection.y * (moveSpeed + PlayerProgression.Player_MoveSpd)) + dodgeVel;
 
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
@@ -93,6 +164,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "Ammo")
         {
             ammo = PlayerProgression.Player_MaxAmmo;
+            PlayerProgression.local.HUD.UpdateAmmo();
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Bullet") && collision.gameObject.GetComponent<Bullet>().Shooter != this.gameObject)
@@ -118,11 +190,19 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+
             if (!invincible)
-            health--;
-            invincible = true;
+            {
+                health--;
+                PlayerProgression.local.HUD.UpdateHealthBar();
+                BeginRegenHealth = 0;
+                invincible = true;
+            }
         }
     }
+
+
+
     public int Ammo { set => ammo = value; get { return ammo; } }
     public int Health { set => health = value; get { return health; } }
     public float Firerate { get { return firerate; } }
